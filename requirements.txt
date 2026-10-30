@@ -1,0 +1,6 @@
+# The pipeline code itself uses only the Python standard library.
+# Airflow is only needed if you want to run it as a DAG (not needed for run_local.py).
+# Install with the official constraints file, e.g. for Python 3.11:
+#   pip install "apache-airflow==3.3.2" --constraint \
+#     "https://raw.githubusercontent.com/apache/airflow/constraints-3.3.2/constraints-3.11.txt"
+apache-airflow==3.3.2

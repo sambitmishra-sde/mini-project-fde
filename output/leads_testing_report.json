@@ -1,0 +1,1311 @@
+{
+  "run_info": {
+    "input_file": "leads_testing.csv",
+    "generated_at": "2026-10-30T06:21:35+00:00",
+    "reference_date": "2024-01-21",
+    "llm_model": null,
+    "llm_used": false,
+    "rubric": "Size (3) + Industry (2) + Source/intent (3) + Recency (2) = 10. Qualified >= 8, review >= 7, rejected below that. Missing data -> human review instead of rejection."
+  },
+  "summary": {
+    "total_processed": 20,
+    "qualified": 6,
+    "qualified_pct": 30.0,
+    "needs_review": 9,
+    "needs_review_pct": 45.0,
+    "rejected": 5,
+    "rejected_pct": 25.0,
+    "high_priority": 4,
+    "average_score": 6.5,
+    "common_rejection_reasons": [
+      {
+        "reason": "Company too small (1-10 employees)",
+        "count": 3
+      },
+      {
+        "reason": "Stale lead (no contact in 90+ days)",
+        "count": 2
+      },
+      {
+        "reason": "Industry outside target market",
+        "count": 2
+      },
+      {
+        "reason": "Weak engagement signal (cold source)",
+        "count": 2
+      }
+    ],
+    "review_reasons": [
+      {
+        "reason": "Could qualify once missing data is known",
+        "count": 3
+      },
+      {
+        "reason": "Too much missing data",
+        "count": 3
+      },
+      {
+        "reason": "Very large enterprise",
+        "count": 1
+      },
+      {
+        "reason": "Missing company name",
+        "count": 1
+      },
+      {
+        "reason": "Borderline score",
+        "count": 1
+      }
+    ],
+    "data_quality_issues": [
+      {
+        "issue": "missing source",
+        "count": 4
+      },
+      {
+        "issue": "missing company_size",
+        "count": 3
+      },
+      {
+        "issue": "missing last_interaction_date",
+        "count": 2
+      },
+      {
+        "issue": "missing industry",
+        "count": 2
+      },
+      {
+        "issue": "missing company",
+        "count": 1
+      }
+    ],
+    "outreach_messages_written_by": {
+      "template": 6
+    }
+  },
+  "priority_queue": [
+    {
+      "priority_rank": 1,
+      "priority": "HIGH",
+      "score": 10,
+      "name": "Test_RecentEngagement",
+      "company": "Hot Lead Corp",
+      "industry": "SaaS",
+      "company_size": 200,
+      "source": "Inbound demo request",
+      "reasoning": [
+        "Company size 200 -> 3/3 pts",
+        "SaaS is a core target industry (2/2 pts)",
+        "Source 'Inbound demo request' -> 3/3 pts",
+        "Last contact 1 days ago (2/2 pts)"
+      ],
+      "outreach_message": "Hi Test_RecentEngagement,\n\nThanks for your interest in LeadFlow. For a 200-person team like Hot Lead Corp, the quickest win is usually automating lead qualification so reps only chase ready buyers. Would Tuesday or Thursday work for a 20-minute walkthrough tailored to SaaS?\n\nBest,\nSam, LeadFlow"
+    },
+    {
+      "priority_rank": 2,
+      "priority": "HIGH",
+      "score": 10,
+      "name": "Test_HighValueMatch",
+      "company": "Perfect Fit Enterprise",
+      "industry": "SaaS",
+      "company_size": 2000,
+      "source": "Inbound demo request",
+      "reasoning": [
+        "Company size 2000 -> 3/3 pts",
+        "SaaS is a core target industry (2/2 pts)",
+        "Source 'Inbound demo request' -> 3/3 pts",
+        "Last contact 1 days ago (2/2 pts)"
+      ],
+      "outreach_message": "Hi Test_HighValueMatch,\n\nThanks for your interest in LeadFlow. For a 2000-person team like Perfect Fit Enterprise, the quickest win is usually automating lead qualification so reps only chase ready buyers. Would Tuesday or Thursday work for a 20-minute walkthrough tailored to SaaS?\n\nBest,\nSam, LeadFlow"
+    },
+    {
+      "priority_rank": 3,
+      "priority": "HIGH",
+      "score": 9,
+      "name": "Test_MultipleInteractions",
+      "company": "Active Company",
+      "industry": "Finance",
+      "company_size": 500,
+      "source": "Inbound demo request",
+      "reasoning": [
+        "Company size 500 -> 3/3 pts",
+        "Finance is an adjacent industry (1/2 pts)",
+        "Source 'Inbound demo request' -> 3/3 pts",
+        "Last contact 1 days ago (2/2 pts)"
+      ],
+      "outreach_message": "Hi Test_MultipleInteractions,\n\nThanks for your interest in LeadFlow. For a 500-person team like Active Company, the quickest win is usually automating lead qualification so reps only chase ready buyers. Would Tuesday or Thursday work for a 20-minute walkthrough tailored to Finance?\n\nBest,\nSam, LeadFlow"
+    },
+    {
+      "priority_rank": 4,
+      "priority": "HIGH",
+      "score": 9,
+      "name": "Test_SMBAverage",
+      "company": "Average SMB Co",
+      "industry": "Retail",
+      "company_size": 120,
+      "source": "Inbound demo request",
+      "reasoning": [
+        "Company size 120 -> 3/3 pts",
+        "Retail is an adjacent industry (1/2 pts)",
+        "Source 'Inbound demo request' -> 3/3 pts",
+        "Last contact 2 days ago (2/2 pts)"
+      ],
+      "outreach_message": "Hi Test_SMBAverage,\n\nThanks for your interest in LeadFlow. For a 120-person team like Average SMB Co, the quickest win is usually automating lead qualification so reps only chase ready buyers. Would Tuesday or Thursday work for a 20-minute walkthrough tailored to Retail?\n\nBest,\nSam, LeadFlow"
+    },
+    {
+      "priority_rank": 5,
+      "priority": "MEDIUM",
+      "score": 8,
+      "name": "Test_MidMarketSoft",
+      "company": "Mid Market Software",
+      "industry": "SaaS",
+      "company_size": 1500,
+      "source": "Content download",
+      "reasoning": [
+        "Company size 1500 -> 3/3 pts",
+        "SaaS is a core target industry (2/2 pts)",
+        "Source 'Content download' -> 1/3 pts",
+        "Last contact 3 days ago (2/2 pts)"
+      ],
+      "outreach_message": "Hi Test_MidMarketSoft,\n\nThanks for engaging with our content. Many SaaS teams tell us manual lead triage eats hours every week. Curious - how does Mid Market Software decide today which leads your team follows up on first?\n\nBest,\nSam, LeadFlow"
+    },
+    {
+      "priority_rank": 6,
+      "priority": "MEDIUM",
+      "score": 8,
+      "name": "Test_WeekOldInteraction",
+      "company": "Week Old Corp",
+      "industry": "Logistics",
+      "company_size": 250,
+      "source": "Webinar attendee",
+      "reasoning": [
+        "Company size 250 -> 3/3 pts",
+        "Logistics is an adjacent industry (1/2 pts)",
+        "Source 'Webinar attendee' -> 2/3 pts",
+        "Last contact 8 days ago (2/2 pts)"
+      ],
+      "outreach_message": "Hi Test_WeekOldInteraction,\n\nThanks for engaging with our content. Many Logistics teams tell us manual lead triage eats hours every week. Curious - how does Week Old Corp decide today which leads your team follows up on first?\n\nBest,\nSam, LeadFlow"
+    }
+  ],
+  "flagged_for_review": [
+    {
+      "score": 8,
+      "name": "Test_VeryLargeEnterprise",
+      "company": "Global Fortune 500 Corp",
+      "why_flagged": "Very large company (50000 employees) - route to enterprise team",
+      "data_issues": [],
+      "reasoning": [
+        "Company size 50000 -> 1/3 pts",
+        "Enterprise Software is a core target industry (2/2 pts)",
+        "Source 'Inbound demo request' -> 3/3 pts",
+        "Last contact 1 days ago (2/2 pts)"
+      ],
+      "ai_second_opinion": {
+        "recommendation": "not_available",
+        "reason": "AI opinion unavailable - review manually",
+        "written_by": "none"
+      }
+    },
+    {
+      "score": 8,
+      "name": "Test_MissingName",
+      "company": null,
+      "why_flagged": "Company name missing - cannot research or personalise outreach",
+      "data_issues": [
+        "missing company"
+      ],
+      "reasoning": [
+        "Company size 400 -> 3/3 pts",
+        "Consulting is an adjacent industry (1/2 pts)",
+        "Source 'Sales call' -> 2/3 pts",
+        "Last contact 2 days ago (2/2 pts)"
+      ],
+      "ai_second_opinion": {
+        "recommendation": "not_available",
+        "reason": "AI opinion unavailable - review manually",
+        "written_by": "none"
+      }
+    },
+    {
+      "score": 7,
+      "name": "Test_MissingSize",
+      "company": "Test Inc",
+      "why_flagged": "Score 7/10, but could reach 10 once 'company_size' is known",
+      "data_issues": [
+        "missing company_size"
+      ],
+      "reasoning": [
+        "Company size unknown (0 pts)",
+        "SaaS is a core target industry (2/2 pts)",
+        "Source 'Inbound demo request' -> 3/3 pts",
+        "Last contact 1 days ago (2/2 pts)"
+      ],
+      "ai_second_opinion": {
+        "recommendation": "not_available",
+        "reason": "AI opinion unavailable - review manually",
+        "written_by": "none"
+      }
+    },
+    {
+      "score": 7,
+      "name": "Test_VeryRecentSignup",
+      "company": "Brand New Startup",
+      "why_flagged": "Score 7/10 is borderline - too close to call",
+      "data_issues": [],
+      "reasoning": [
+        "Company size 2 -> 0/3 pts",
+        "SaaS is a core target industry (2/2 pts)",
+        "Source 'Inbound demo request' -> 3/3 pts",
+        "Last contact 1 days ago (2/2 pts)"
+      ],
+      "ai_second_opinion": {
+        "recommendation": "not_available",
+        "reason": "AI opinion unavailable - review manually",
+        "written_by": "none"
+      }
+    },
+    {
+      "score": 6,
+      "name": "Test_UnknownIndustry",
+      "company": "Mysterious Startup",
+      "why_flagged": "Score 6/10, but could reach 8 once 'industry' is known",
+      "data_issues": [
+        "missing industry"
+      ],
+      "reasoning": [
+        "Company size 15 -> 1/3 pts",
+        "Industry unknown (0 pts)",
+        "Source 'Referral' -> 3/3 pts",
+        "Last contact 2 days ago (2/2 pts)"
+      ],
+      "ai_second_opinion": {
+        "recommendation": "not_available",
+        "reason": "AI opinion unavailable - review manually",
+        "written_by": "none"
+      }
+    },
+    {
+      "score": 6,
+      "name": "Test_NoSourceInfo",
+      "company": "Source Unknown Corp",
+      "why_flagged": "Score 6/10, but could reach 9 once 'source' is known",
+      "data_issues": [
+        "missing source"
+      ],
+      "reasoning": [
+        "Company size 300 -> 3/3 pts",
+        "Retail is an adjacent industry (1/2 pts)",
+        "Lead source unknown (0 pts)",
+        "Last contact 3 days ago (2/2 pts)"
+      ],
+      "ai_second_opinion": {
+        "recommendation": "not_available",
+        "reason": "AI opinion unavailable - review manually",
+        "written_by": "none"
+      }
+    },
+    {
+      "score": 5,
+      "name": "Test_MissingDate",
+      "company": "Mystery Co",
+      "why_flagged": "Too much missing data (source, recency) to decide automatically",
+      "data_issues": [
+        "missing source",
+        "missing last_interaction_date"
+      ],
+      "reasoning": [
+        "Company size 150 -> 3/3 pts",
+        "Technology is a core target industry (2/2 pts)",
+        "Lead source unknown (0 pts)",
+        "Last interaction date unknown (0 pts)"
+      ],
+      "ai_second_opinion": {
+        "recommendation": "not_available",
+        "reason": "AI opinion unavailable - review manually",
+        "written_by": "none"
+      }
+    },
+    {
+      "score": 4,
+      "name": "Test_PartialData",
+      "company": "Tech Partial",
+      "why_flagged": "Too much missing data (company_size, source) to decide automatically",
+      "data_issues": [
+        "missing source",
+        "missing company_size"
+      ],
+      "reasoning": [
+        "Company size unknown (0 pts)",
+        "SaaS is a core target industry (2/2 pts)",
+        "Lead source unknown (0 pts)",
+        "Last contact 1 days ago (2/2 pts)"
+      ],
+      "ai_second_opinion": {
+        "recommendation": "not_available",
+        "reason": "AI opinion unavailable - review manually",
+        "written_by": "none"
+      }
+    },
+    {
+      "score": 1,
+      "name": "Test_NameOnly",
+      "company": "James Wilson",
+      "why_flagged": "Too much missing data (company_size, industry, source, recency) to decide automatically",
+      "data_issues": [
+        "missing industry",
+        "missing source",
+        "missing company_size",
+        "missing last_interaction_date"
+      ],
+      "reasoning": [
+        "Company size unknown (0 pts)",
+        "Industry unknown (0 pts)",
+        "Lead source unknown (0 pts)",
+        "Last interaction date unknown (0 pts)"
+      ],
+      "ai_second_opinion": {
+        "recommendation": "not_available",
+        "reason": "AI opinion unavailable - review manually",
+        "written_by": "none"
+      }
+    }
+  ],
+  "disqualified": [
+    {
+      "score": 6,
+      "name": "Test_StaleInteraction",
+      "company": "Old Company Inc",
+      "rejection_reasons": [
+        "Stale lead (no contact in 90+ days)"
+      ],
+      "reasoning": [
+        "Company size 100 -> 3/3 pts",
+        "Manufacturing is an adjacent industry (1/2 pts)",
+        "Source 'Sales call' -> 2/3 pts",
+        "Last contact 585 days ago - stale (0/2 pts)"
+      ]
+    },
+    {
+      "score": 6,
+      "name": "Test_GovernmentBuyer",
+      "company": "Government Tech",
+      "rejection_reasons": [
+        "Industry outside target market"
+      ],
+      "reasoning": [
+        "Company size 3000 -> 2/3 pts",
+        "Government is outside our target industries (0/2 pts)",
+        "Source 'Sales call' -> 2/3 pts",
+        "Last contact 4 days ago (2/2 pts)"
+      ]
+    },
+    {
+      "score": 5,
+      "name": "Test_StartupShutdown",
+      "company": "Failed Startup",
+      "rejection_reasons": [
+        "Company too small (1-10 employees)",
+        "Stale lead (no contact in 90+ days)"
+      ],
+      "reasoning": [
+        "Company size 8 -> 0/3 pts",
+        "SaaS is a core target industry (2/2 pts)",
+        "Source 'Referral' -> 3/3 pts",
+        "Last contact 265 days ago - stale (0/2 pts)"
+      ]
+    },
+    {
+      "score": 4,
+      "name": "Test_Solo",
+      "company": "John Doe Consulting",
+      "rejection_reasons": [
+        "Company too small (1-10 employees)",
+        "Weak engagement signal (cold source)"
+      ],
+      "reasoning": [
+        "Company size 1 -> 0/3 pts",
+        "Consulting is an adjacent industry (1/2 pts)",
+        "Source 'LinkedIn outreach' -> 1/3 pts",
+        "Last contact 1 days ago (2/2 pts)"
+      ]
+    },
+    {
+      "score": 3,
+      "name": "Test_LowValueNiche",
+      "company": "Niche Small Op",
+      "rejection_reasons": [
+        "Company too small (1-10 employees)",
+        "Industry outside target market",
+        "Weak engagement signal (cold source)"
+      ],
+      "reasoning": [
+        "Company size 5 -> 0/3 pts",
+        "Agriculture is outside our target industries (0/2 pts)",
+        "Source 'LinkedIn outreach' -> 1/3 pts",
+        "Last contact 6 days ago (2/2 pts)"
+      ]
+    }
+  ],
+  "sample_outreach_messages": [
+    {
+      "priority_rank": 1,
+      "name": "Test_RecentEngagement",
+      "company": "Hot Lead Corp",
+      "variant": "demo_follow_up",
+      "written_by": "template",
+      "message": "Hi Test_RecentEngagement,\n\nThanks for your interest in LeadFlow. For a 200-person team like Hot Lead Corp, the quickest win is usually automating lead qualification so reps only chase ready buyers. Would Tuesday or Thursday work for a 20-minute walkthrough tailored to SaaS?\n\nBest,\nSam, LeadFlow"
+    },
+    {
+      "priority_rank": 5,
+      "name": "Test_MidMarketSoft",
+      "company": "Mid Market Software",
+      "variant": "value_first",
+      "written_by": "template",
+      "message": "Hi Test_MidMarketSoft,\n\nThanks for engaging with our content. Many SaaS teams tell us manual lead triage eats hours every week. Curious - how does Mid Market Software decide today which leads your team follows up on first?\n\nBest,\nSam, LeadFlow"
+    },
+    {
+      "priority_rank": 2,
+      "name": "Test_HighValueMatch",
+      "company": "Perfect Fit Enterprise",
+      "variant": "demo_follow_up",
+      "written_by": "template",
+      "message": "Hi Test_HighValueMatch,\n\nThanks for your interest in LeadFlow. For a 2000-person team like Perfect Fit Enterprise, the quickest win is usually automating lead qualification so reps only chase ready buyers. Would Tuesday or Thursday work for a 20-minute walkthrough tailored to SaaS?\n\nBest,\nSam, LeadFlow"
+    },
+    {
+      "priority_rank": 3,
+      "name": "Test_MultipleInteractions",
+      "company": "Active Company",
+      "variant": "demo_follow_up",
+      "written_by": "template",
+      "message": "Hi Test_MultipleInteractions,\n\nThanks for your interest in LeadFlow. For a 500-person team like Active Company, the quickest win is usually automating lead qualification so reps only chase ready buyers. Would Tuesday or Thursday work for a 20-minute walkthrough tailored to Finance?\n\nBest,\nSam, LeadFlow"
+    },
+    {
+      "priority_rank": 4,
+      "name": "Test_SMBAverage",
+      "company": "Average SMB Co",
+      "variant": "demo_follow_up",
+      "written_by": "template",
+      "message": "Hi Test_SMBAverage,\n\nThanks for your interest in LeadFlow. For a 120-person team like Average SMB Co, the quickest win is usually automating lead qualification so reps only chase ready buyers. Would Tuesday or Thursday work for a 20-minute walkthrough tailored to Retail?\n\nBest,\nSam, LeadFlow"
+    }
+  ],
+  "all_leads": [
+    {
+      "lead_id": "1",
+      "csv_row": 2,
+      "name": "Test_MissingSize",
+      "first_name": "Test_MissingSize",
+      "company": "Test Inc",
+      "company_size": null,
+      "industry": "SaaS",
+      "source": "Inbound demo request",
+      "last_interaction_date": "2024-01-20",
+      "data_issues": [
+        "missing company_size"
+      ],
+      "days_since_last_interaction": 1,
+      "score": 7,
+      "score_breakdown": {
+        "company_size": 0,
+        "industry": 2,
+        "source": 3,
+        "recency": 2
+      },
+      "reasoning": [
+        "Company size unknown (0 pts)",
+        "SaaS is a core target industry (2/2 pts)",
+        "Source 'Inbound demo request' -> 3/3 pts",
+        "Last contact 1 days ago (2/2 pts)"
+      ],
+      "weaknesses": [],
+      "missing_fields": [
+        "company_size"
+      ],
+      "decision": "review",
+      "decision_category": "Could qualify once missing data is known",
+      "decision_reason": "Score 7/10, but could reach 10 once 'company_size' is known",
+      "priority_rank": null,
+      "priority": "HUMAN_REVIEW",
+      "outreach": null,
+      "ai_second_opinion": {
+        "recommendation": "not_available",
+        "reason": "AI opinion unavailable - review manually",
+        "written_by": "none"
+      }
+    },
+    {
+      "lead_id": "2",
+      "csv_row": 3,
+      "name": "Test_VeryLargeEnterprise",
+      "first_name": "Test_VeryLargeEnterprise",
+      "company": "Global Fortune 500 Corp",
+      "company_size": 50000,
+      "industry": "Enterprise Software",
+      "source": "Inbound demo request",
+      "last_interaction_date": "2024-01-20",
+      "data_issues": [],
+      "days_since_last_interaction": 1,
+      "score": 8,
+      "score_breakdown": {
+        "company_size": 1,
+        "industry": 2,
+        "source": 3,
+        "recency": 2
+      },
+      "reasoning": [
+        "Company size 50000 -> 1/3 pts",
+        "Enterprise Software is a core target industry (2/2 pts)",
+        "Source 'Inbound demo request' -> 3/3 pts",
+        "Last contact 1 days ago (2/2 pts)"
+      ],
+      "weaknesses": [
+        "Large enterprise (5000+): long sales cycle"
+      ],
+      "missing_fields": [],
+      "decision": "review",
+      "decision_category": "Very large enterprise",
+      "decision_reason": "Very large company (50000 employees) - route to enterprise team",
+      "priority_rank": null,
+      "priority": "HUMAN_REVIEW",
+      "outreach": null,
+      "ai_second_opinion": {
+        "recommendation": "not_available",
+        "reason": "AI opinion unavailable - review manually",
+        "written_by": "none"
+      }
+    },
+    {
+      "lead_id": "3",
+      "csv_row": 4,
+      "name": "Test_Solo",
+      "first_name": "Test_Solo",
+      "company": "John Doe Consulting",
+      "company_size": 1,
+      "industry": "Consulting",
+      "source": "LinkedIn outreach",
+      "last_interaction_date": "2024-01-20",
+      "data_issues": [],
+      "days_since_last_interaction": 1,
+      "score": 4,
+      "score_breakdown": {
+        "company_size": 0,
+        "industry": 1,
+        "source": 1,
+        "recency": 2
+      },
+      "reasoning": [
+        "Company size 1 -> 0/3 pts",
+        "Consulting is an adjacent industry (1/2 pts)",
+        "Source 'LinkedIn outreach' -> 1/3 pts",
+        "Last contact 1 days ago (2/2 pts)"
+      ],
+      "weaknesses": [
+        "Company too small (1-10 employees)",
+        "Weak engagement signal (cold source)"
+      ],
+      "missing_fields": [],
+      "decision": "rejected",
+      "decision_category": "Below review bar",
+      "decision_reason": "Score 4/10 is below the review bar (7)",
+      "priority_rank": null,
+      "priority": "NONE",
+      "outreach": null,
+      "ai_second_opinion": null
+    },
+    {
+      "lead_id": "4",
+      "csv_row": 5,
+      "name": "Test_StaleInteraction",
+      "first_name": "Test_StaleInteraction",
+      "company": "Old Company Inc",
+      "company_size": 100,
+      "industry": "Manufacturing",
+      "source": "Sales call",
+      "last_interaction_date": "2022-06-15",
+      "data_issues": [],
+      "days_since_last_interaction": 585,
+      "score": 6,
+      "score_breakdown": {
+        "company_size": 3,
+        "industry": 1,
+        "source": 2,
+        "recency": 0
+      },
+      "reasoning": [
+        "Company size 100 -> 3/3 pts",
+        "Manufacturing is an adjacent industry (1/2 pts)",
+        "Source 'Sales call' -> 2/3 pts",
+        "Last contact 585 days ago - stale (0/2 pts)"
+      ],
+      "weaknesses": [
+        "Stale lead (no contact in 90+ days)"
+      ],
+      "missing_fields": [],
+      "decision": "rejected",
+      "decision_category": "Below review bar",
+      "decision_reason": "Score 6/10 is below the review bar (7)",
+      "priority_rank": null,
+      "priority": "NONE",
+      "outreach": null,
+      "ai_second_opinion": null
+    },
+    {
+      "lead_id": "5",
+      "csv_row": 6,
+      "name": "Test_RecentEngagement",
+      "first_name": "Test_RecentEngagement",
+      "company": "Hot Lead Corp",
+      "company_size": 200,
+      "industry": "SaaS",
+      "source": "Inbound demo request",
+      "last_interaction_date": "2024-01-20",
+      "data_issues": [],
+      "days_since_last_interaction": 1,
+      "score": 10,
+      "score_breakdown": {
+        "company_size": 3,
+        "industry": 2,
+        "source": 3,
+        "recency": 2
+      },
+      "reasoning": [
+        "Company size 200 -> 3/3 pts",
+        "SaaS is a core target industry (2/2 pts)",
+        "Source 'Inbound demo request' -> 3/3 pts",
+        "Last contact 1 days ago (2/2 pts)"
+      ],
+      "weaknesses": [],
+      "missing_fields": [],
+      "decision": "qualified",
+      "decision_category": "Meets qualification bar",
+      "decision_reason": "Score 10/10 meets the qualification bar (8+)",
+      "priority_rank": 1,
+      "priority": "HIGH",
+      "outreach": {
+        "message": "Hi Test_RecentEngagement,\n\nThanks for your interest in LeadFlow. For a 200-person team like Hot Lead Corp, the quickest win is usually automating lead qualification so reps only chase ready buyers. Would Tuesday or Thursday work for a 20-minute walkthrough tailored to SaaS?\n\nBest,\nSam, LeadFlow",
+        "variant": "demo_follow_up",
+        "written_by": "template"
+      },
+      "ai_second_opinion": null
+    },
+    {
+      "lead_id": "6",
+      "csv_row": 7,
+      "name": "Test_MissingDate",
+      "first_name": "Test_MissingDate",
+      "company": "Mystery Co",
+      "company_size": 150,
+      "industry": "Technology",
+      "source": null,
+      "last_interaction_date": null,
+      "data_issues": [
+        "missing source",
+        "missing last_interaction_date"
+      ],
+      "days_since_last_interaction": null,
+      "score": 5,
+      "score_breakdown": {
+        "company_size": 3,
+        "industry": 2,
+        "source": 0,
+        "recency": 0
+      },
+      "reasoning": [
+        "Company size 150 -> 3/3 pts",
+        "Technology is a core target industry (2/2 pts)",
+        "Lead source unknown (0 pts)",
+        "Last interaction date unknown (0 pts)"
+      ],
+      "weaknesses": [],
+      "missing_fields": [
+        "source",
+        "recency"
+      ],
+      "decision": "review",
+      "decision_category": "Too much missing data",
+      "decision_reason": "Too much missing data (source, recency) to decide automatically",
+      "priority_rank": null,
+      "priority": "HUMAN_REVIEW",
+      "outreach": null,
+      "ai_second_opinion": {
+        "recommendation": "not_available",
+        "reason": "AI opinion unavailable - review manually",
+        "written_by": "none"
+      }
+    },
+    {
+      "lead_id": "7",
+      "csv_row": 8,
+      "name": "Test_UnknownIndustry",
+      "first_name": "Test_UnknownIndustry",
+      "company": "Mysterious Startup",
+      "company_size": 15,
+      "industry": null,
+      "source": "Referral",
+      "last_interaction_date": "2024-01-19",
+      "data_issues": [
+        "missing industry"
+      ],
+      "days_since_last_interaction": 2,
+      "score": 6,
+      "score_breakdown": {
+        "company_size": 1,
+        "industry": 0,
+        "source": 3,
+        "recency": 2
+      },
+      "reasoning": [
+        "Company size 15 -> 1/3 pts",
+        "Industry unknown (0 pts)",
+        "Source 'Referral' -> 3/3 pts",
+        "Last contact 2 days ago (2/2 pts)"
+      ],
+      "weaknesses": [
+        "Small company (11-49): limited budget"
+      ],
+      "missing_fields": [
+        "industry"
+      ],
+      "decision": "review",
+      "decision_category": "Could qualify once missing data is known",
+      "decision_reason": "Score 6/10, but could reach 8 once 'industry' is known",
+      "priority_rank": null,
+      "priority": "HUMAN_REVIEW",
+      "outreach": null,
+      "ai_second_opinion": {
+        "recommendation": "not_available",
+        "reason": "AI opinion unavailable - review manually",
+        "written_by": "none"
+      }
+    },
+    {
+      "lead_id": "8",
+      "csv_row": 9,
+      "name": "Test_VeryRecentSignup",
+      "first_name": "Test_VeryRecentSignup",
+      "company": "Brand New Startup",
+      "company_size": 2,
+      "industry": "SaaS",
+      "source": "Inbound demo request",
+      "last_interaction_date": "2024-01-20",
+      "data_issues": [],
+      "days_since_last_interaction": 1,
+      "score": 7,
+      "score_breakdown": {
+        "company_size": 0,
+        "industry": 2,
+        "source": 3,
+        "recency": 2
+      },
+      "reasoning": [
+        "Company size 2 -> 0/3 pts",
+        "SaaS is a core target industry (2/2 pts)",
+        "Source 'Inbound demo request' -> 3/3 pts",
+        "Last contact 1 days ago (2/2 pts)"
+      ],
+      "weaknesses": [
+        "Company too small (1-10 employees)"
+      ],
+      "missing_fields": [],
+      "decision": "review",
+      "decision_category": "Borderline score",
+      "decision_reason": "Score 7/10 is borderline - too close to call",
+      "priority_rank": null,
+      "priority": "HUMAN_REVIEW",
+      "outreach": null,
+      "ai_second_opinion": {
+        "recommendation": "not_available",
+        "reason": "AI opinion unavailable - review manually",
+        "written_by": "none"
+      }
+    },
+    {
+      "lead_id": "9",
+      "csv_row": 10,
+      "name": "Test_MultipleInteractions",
+      "first_name": "Test_MultipleInteractions",
+      "company": "Active Company",
+      "company_size": 500,
+      "industry": "Finance",
+      "source": "Inbound demo request",
+      "last_interaction_date": "2024-01-20",
+      "data_issues": [],
+      "days_since_last_interaction": 1,
+      "score": 9,
+      "score_breakdown": {
+        "company_size": 3,
+        "industry": 1,
+        "source": 3,
+        "recency": 2
+      },
+      "reasoning": [
+        "Company size 500 -> 3/3 pts",
+        "Finance is an adjacent industry (1/2 pts)",
+        "Source 'Inbound demo request' -> 3/3 pts",
+        "Last contact 1 days ago (2/2 pts)"
+      ],
+      "weaknesses": [],
+      "missing_fields": [],
+      "decision": "qualified",
+      "decision_category": "Meets qualification bar",
+      "decision_reason": "Score 9/10 meets the qualification bar (8+)",
+      "priority_rank": 3,
+      "priority": "HIGH",
+      "outreach": {
+        "message": "Hi Test_MultipleInteractions,\n\nThanks for your interest in LeadFlow. For a 500-person team like Active Company, the quickest win is usually automating lead qualification so reps only chase ready buyers. Would Tuesday or Thursday work for a 20-minute walkthrough tailored to Finance?\n\nBest,\nSam, LeadFlow",
+        "variant": "demo_follow_up",
+        "written_by": "template"
+      },
+      "ai_second_opinion": null
+    },
+    {
+      "lead_id": "10",
+      "csv_row": 11,
+      "name": "Test_NoSourceInfo",
+      "first_name": "Test_NoSourceInfo",
+      "company": "Source Unknown Corp",
+      "company_size": 300,
+      "industry": "Retail",
+      "source": null,
+      "last_interaction_date": "2024-01-18",
+      "data_issues": [
+        "missing source"
+      ],
+      "days_since_last_interaction": 3,
+      "score": 6,
+      "score_breakdown": {
+        "company_size": 3,
+        "industry": 1,
+        "source": 0,
+        "recency": 2
+      },
+      "reasoning": [
+        "Company size 300 -> 3/3 pts",
+        "Retail is an adjacent industry (1/2 pts)",
+        "Lead source unknown (0 pts)",
+        "Last contact 3 days ago (2/2 pts)"
+      ],
+      "weaknesses": [],
+      "missing_fields": [
+        "source"
+      ],
+      "decision": "review",
+      "decision_category": "Could qualify once missing data is known",
+      "decision_reason": "Score 6/10, but could reach 9 once 'source' is known",
+      "priority_rank": null,
+      "priority": "HUMAN_REVIEW",
+      "outreach": null,
+      "ai_second_opinion": {
+        "recommendation": "not_available",
+        "reason": "AI opinion unavailable - review manually",
+        "written_by": "none"
+      }
+    },
+    {
+      "lead_id": "11",
+      "csv_row": 12,
+      "name": "Test_HighValueMatch",
+      "first_name": "Test_HighValueMatch",
+      "company": "Perfect Fit Enterprise",
+      "company_size": 2000,
+      "industry": "SaaS",
+      "source": "Inbound demo request",
+      "last_interaction_date": "2024-01-20",
+      "data_issues": [],
+      "days_since_last_interaction": 1,
+      "score": 10,
+      "score_breakdown": {
+        "company_size": 3,
+        "industry": 2,
+        "source": 3,
+        "recency": 2
+      },
+      "reasoning": [
+        "Company size 2000 -> 3/3 pts",
+        "SaaS is a core target industry (2/2 pts)",
+        "Source 'Inbound demo request' -> 3/3 pts",
+        "Last contact 1 days ago (2/2 pts)"
+      ],
+      "weaknesses": [],
+      "missing_fields": [],
+      "decision": "qualified",
+      "decision_category": "Meets qualification bar",
+      "decision_reason": "Score 10/10 meets the qualification bar (8+)",
+      "priority_rank": 2,
+      "priority": "HIGH",
+      "outreach": {
+        "message": "Hi Test_HighValueMatch,\n\nThanks for your interest in LeadFlow. For a 2000-person team like Perfect Fit Enterprise, the quickest win is usually automating lead qualification so reps only chase ready buyers. Would Tuesday or Thursday work for a 20-minute walkthrough tailored to SaaS?\n\nBest,\nSam, LeadFlow",
+        "variant": "demo_follow_up",
+        "written_by": "template"
+      },
+      "ai_second_opinion": null
+    },
+    {
+      "lead_id": "12",
+      "csv_row": 13,
+      "name": "Test_LowValueNiche",
+      "first_name": "Test_LowValueNiche",
+      "company": "Niche Small Op",
+      "company_size": 5,
+      "industry": "Agriculture",
+      "source": "LinkedIn outreach",
+      "last_interaction_date": "2024-01-15",
+      "data_issues": [],
+      "days_since_last_interaction": 6,
+      "score": 3,
+      "score_breakdown": {
+        "company_size": 0,
+        "industry": 0,
+        "source": 1,
+        "recency": 2
+      },
+      "reasoning": [
+        "Company size 5 -> 0/3 pts",
+        "Agriculture is outside our target industries (0/2 pts)",
+        "Source 'LinkedIn outreach' -> 1/3 pts",
+        "Last contact 6 days ago (2/2 pts)"
+      ],
+      "weaknesses": [
+        "Company too small (1-10 employees)",
+        "Industry outside target market",
+        "Weak engagement signal (cold source)"
+      ],
+      "missing_fields": [],
+      "decision": "rejected",
+      "decision_category": "Below review bar",
+      "decision_reason": "Score 3/10 is below the review bar (7)",
+      "priority_rank": null,
+      "priority": "NONE",
+      "outreach": null,
+      "ai_second_opinion": null
+    },
+    {
+      "lead_id": "13",
+      "csv_row": 14,
+      "name": "Test_MissingName",
+      "first_name": "Test_MissingName",
+      "company": null,
+      "company_size": 400,
+      "industry": "Consulting",
+      "source": "Sales call",
+      "last_interaction_date": "2024-01-19",
+      "data_issues": [
+        "missing company"
+      ],
+      "days_since_last_interaction": 2,
+      "score": 8,
+      "score_breakdown": {
+        "company_size": 3,
+        "industry": 1,
+        "source": 2,
+        "recency": 2
+      },
+      "reasoning": [
+        "Company size 400 -> 3/3 pts",
+        "Consulting is an adjacent industry (1/2 pts)",
+        "Source 'Sales call' -> 2/3 pts",
+        "Last contact 2 days ago (2/2 pts)"
+      ],
+      "weaknesses": [],
+      "missing_fields": [],
+      "decision": "review",
+      "decision_category": "Missing company name",
+      "decision_reason": "Company name missing - cannot research or personalise outreach",
+      "priority_rank": null,
+      "priority": "HUMAN_REVIEW",
+      "outreach": null,
+      "ai_second_opinion": {
+        "recommendation": "not_available",
+        "reason": "AI opinion unavailable - review manually",
+        "written_by": "none"
+      }
+    },
+    {
+      "lead_id": "14",
+      "csv_row": 15,
+      "name": "Test_NameOnly",
+      "first_name": "Test_NameOnly",
+      "company": "James Wilson",
+      "company_size": null,
+      "industry": null,
+      "source": null,
+      "last_interaction_date": null,
+      "data_issues": [
+        "missing industry",
+        "missing source",
+        "missing company_size",
+        "missing last_interaction_date"
+      ],
+      "days_since_last_interaction": null,
+      "score": 1,
+      "score_breakdown": {
+        "company_size": 0,
+        "industry": 0,
+        "source": 0,
+        "recency": 0
+      },
+      "reasoning": [
+        "Company size unknown (0 pts)",
+        "Industry unknown (0 pts)",
+        "Lead source unknown (0 pts)",
+        "Last interaction date unknown (0 pts)"
+      ],
+      "weaknesses": [],
+      "missing_fields": [
+        "company_size",
+        "industry",
+        "source",
+        "recency"
+      ],
+      "decision": "review",
+      "decision_category": "Too much missing data",
+      "decision_reason": "Too much missing data (company_size, industry, source, recency) to decide automatically",
+      "priority_rank": null,
+      "priority": "HUMAN_REVIEW",
+      "outreach": null,
+      "ai_second_opinion": {
+        "recommendation": "not_available",
+        "reason": "AI opinion unavailable - review manually",
+        "written_by": "none"
+      }
+    },
+    {
+      "lead_id": "15",
+      "csv_row": 16,
+      "name": "Test_PartialData",
+      "first_name": "Test_PartialData",
+      "company": "Tech Partial",
+      "company_size": null,
+      "industry": "SaaS",
+      "source": null,
+      "last_interaction_date": "2024-01-20",
+      "data_issues": [
+        "missing source",
+        "missing company_size"
+      ],
+      "days_since_last_interaction": 1,
+      "score": 4,
+      "score_breakdown": {
+        "company_size": 0,
+        "industry": 2,
+        "source": 0,
+        "recency": 2
+      },
+      "reasoning": [
+        "Company size unknown (0 pts)",
+        "SaaS is a core target industry (2/2 pts)",
+        "Lead source unknown (0 pts)",
+        "Last contact 1 days ago (2/2 pts)"
+      ],
+      "weaknesses": [],
+      "missing_fields": [
+        "company_size",
+        "source"
+      ],
+      "decision": "review",
+      "decision_category": "Too much missing data",
+      "decision_reason": "Too much missing data (company_size, source) to decide automatically",
+      "priority_rank": null,
+      "priority": "HUMAN_REVIEW",
+      "outreach": null,
+      "ai_second_opinion": {
+        "recommendation": "not_available",
+        "reason": "AI opinion unavailable - review manually",
+        "written_by": "none"
+      }
+    },
+    {
+      "lead_id": "16",
+      "csv_row": 17,
+      "name": "Test_WeekOldInteraction",
+      "first_name": "Test_WeekOldInteraction",
+      "company": "Week Old Corp",
+      "company_size": 250,
+      "industry": "Logistics",
+      "source": "Webinar attendee",
+      "last_interaction_date": "2024-01-13",
+      "data_issues": [],
+      "days_since_last_interaction": 8,
+      "score": 8,
+      "score_breakdown": {
+        "company_size": 3,
+        "industry": 1,
+        "source": 2,
+        "recency": 2
+      },
+      "reasoning": [
+        "Company size 250 -> 3/3 pts",
+        "Logistics is an adjacent industry (1/2 pts)",
+        "Source 'Webinar attendee' -> 2/3 pts",
+        "Last contact 8 days ago (2/2 pts)"
+      ],
+      "weaknesses": [],
+      "missing_fields": [],
+      "decision": "qualified",
+      "decision_category": "Meets qualification bar",
+      "decision_reason": "Score 8/10 meets the qualification bar (8+)",
+      "priority_rank": 6,
+      "priority": "MEDIUM",
+      "outreach": {
+        "message": "Hi Test_WeekOldInteraction,\n\nThanks for engaging with our content. Many Logistics teams tell us manual lead triage eats hours every week. Curious - how does Week Old Corp decide today which leads your team follows up on first?\n\nBest,\nSam, LeadFlow",
+        "variant": "value_first",
+        "written_by": "template"
+      },
+      "ai_second_opinion": null
+    },
+    {
+      "lead_id": "17",
+      "csv_row": 18,
+      "name": "Test_MidMarketSoft",
+      "first_name": "Test_MidMarketSoft",
+      "company": "Mid Market Software",
+      "company_size": 1500,
+      "industry": "SaaS",
+      "source": "Content download",
+      "last_interaction_date": "2024-01-18",
+      "data_issues": [],
+      "days_since_last_interaction": 3,
+      "score": 8,
+      "score_breakdown": {
+        "company_size": 3,
+        "industry": 2,
+        "source": 1,
+        "recency": 2
+      },
+      "reasoning": [
+        "Company size 1500 -> 3/3 pts",
+        "SaaS is a core target industry (2/2 pts)",
+        "Source 'Content download' -> 1/3 pts",
+        "Last contact 3 days ago (2/2 pts)"
+      ],
+      "weaknesses": [
+        "Weak engagement signal (cold source)"
+      ],
+      "missing_fields": [],
+      "decision": "qualified",
+      "decision_category": "Meets qualification bar",
+      "decision_reason": "Score 8/10 meets the qualification bar (8+)",
+      "priority_rank": 5,
+      "priority": "MEDIUM",
+      "outreach": {
+        "message": "Hi Test_MidMarketSoft,\n\nThanks for engaging with our content. Many SaaS teams tell us manual lead triage eats hours every week. Curious - how does Mid Market Software decide today which leads your team follows up on first?\n\nBest,\nSam, LeadFlow",
+        "variant": "value_first",
+        "written_by": "template"
+      },
+      "ai_second_opinion": null
+    },
+    {
+      "lead_id": "18",
+      "csv_row": 19,
+      "name": "Test_StartupShutdown",
+      "first_name": "Test_StartupShutdown",
+      "company": "Failed Startup",
+      "company_size": 8,
+      "industry": "SaaS",
+      "source": "Referral",
+      "last_interaction_date": "2023-05-01",
+      "data_issues": [],
+      "days_since_last_interaction": 265,
+      "score": 5,
+      "score_breakdown": {
+        "company_size": 0,
+        "industry": 2,
+        "source": 3,
+        "recency": 0
+      },
+      "reasoning": [
+        "Company size 8 -> 0/3 pts",
+        "SaaS is a core target industry (2/2 pts)",
+        "Source 'Referral' -> 3/3 pts",
+        "Last contact 265 days ago - stale (0/2 pts)"
+      ],
+      "weaknesses": [
+        "Company too small (1-10 employees)",
+        "Stale lead (no contact in 90+ days)"
+      ],
+      "missing_fields": [],
+      "decision": "rejected",
+      "decision_category": "Below review bar",
+      "decision_reason": "Score 5/10 is below the review bar (7)",
+      "priority_rank": null,
+      "priority": "NONE",
+      "outreach": null,
+      "ai_second_opinion": null
+    },
+    {
+      "lead_id": "19",
+      "csv_row": 20,
+      "name": "Test_GovernmentBuyer",
+      "first_name": "Test_GovernmentBuyer",
+      "company": "Government Tech",
+      "company_size": 3000,
+      "industry": "Government",
+      "source": "Sales call",
+      "last_interaction_date": "2024-01-17",
+      "data_issues": [],
+      "days_since_last_interaction": 4,
+      "score": 6,
+      "score_breakdown": {
+        "company_size": 2,
+        "industry": 0,
+        "source": 2,
+        "recency": 2
+      },
+      "reasoning": [
+        "Company size 3000 -> 2/3 pts",
+        "Government is outside our target industries (0/2 pts)",
+        "Source 'Sales call' -> 2/3 pts",
+        "Last contact 4 days ago (2/2 pts)"
+      ],
+      "weaknesses": [
+        "Industry outside target market"
+      ],
+      "missing_fields": [],
+      "decision": "rejected",
+      "decision_category": "Below review bar",
+      "decision_reason": "Score 6/10 is below the review bar (7)",
+      "priority_rank": null,
+      "priority": "NONE",
+      "outreach": null,
+      "ai_second_opinion": null
+    },
+    {
+      "lead_id": "20",
+      "csv_row": 21,
+      "name": "Test_SMBAverage",
+      "first_name": "Test_SMBAverage",
+      "company": "Average SMB Co",
+      "company_size": 120,
+      "industry": "Retail",
+      "source": "Inbound demo request",
+      "last_interaction_date": "2024-01-19",
+      "data_issues": [],
+      "days_since_last_interaction": 2,
+      "score": 9,
+      "score_breakdown": {
+        "company_size": 3,
+        "industry": 1,
+        "source": 3,
+        "recency": 2
+      },
+      "reasoning": [
+        "Company size 120 -> 3/3 pts",
+        "Retail is an adjacent industry (1/2 pts)",
+        "Source 'Inbound demo request' -> 3/3 pts",
+        "Last contact 2 days ago (2/2 pts)"
+      ],
+      "weaknesses": [],
+      "missing_fields": [],
+      "decision": "qualified",
+      "decision_category": "Meets qualification bar",
+      "decision_reason": "Score 9/10 meets the qualification bar (8+)",
+      "priority_rank": 4,
+      "priority": "HIGH",
+      "outreach": {
+        "message": "Hi Test_SMBAverage,\n\nThanks for your interest in LeadFlow. For a 120-person team like Average SMB Co, the quickest win is usually automating lead qualification so reps only chase ready buyers. Would Tuesday or Thursday work for a 20-minute walkthrough tailored to Retail?\n\nBest,\nSam, LeadFlow",
+        "variant": "demo_follow_up",
+        "written_by": "template"
+      },
+      "ai_second_opinion": null
+    }
+  ]
+}

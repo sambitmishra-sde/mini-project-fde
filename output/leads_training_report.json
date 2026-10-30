@@ -1,0 +1,1702 @@
+{
+  "run_info": {
+    "input_file": "leads_training.csv",
+    "generated_at": "2026-10-30T06:21:35+00:00",
+    "reference_date": "2024-01-21",
+    "llm_model": null,
+    "llm_used": false,
+    "rubric": "Size (3) + Industry (2) + Source/intent (3) + Recency (2) = 10. Qualified >= 8, review >= 7, rejected below that. Missing data -> human review instead of rejection."
+  },
+  "summary": {
+    "total_processed": 29,
+    "qualified": 8,
+    "qualified_pct": 27.6,
+    "needs_review": 7,
+    "needs_review_pct": 24.1,
+    "rejected": 14,
+    "rejected_pct": 48.3,
+    "high_priority": 4,
+    "average_score": 6.45,
+    "common_rejection_reasons": [
+      {
+        "reason": "Weak engagement signal (cold source)",
+        "count": 10
+      },
+      {
+        "reason": "Industry outside target market",
+        "count": 5
+      },
+      {
+        "reason": "Stale lead (no contact in 90+ days)",
+        "count": 3
+      },
+      {
+        "reason": "Interaction cooling off (45+ days)",
+        "count": 3
+      },
+      {
+        "reason": "Small company (11-49): limited budget",
+        "count": 3
+      },
+      {
+        "reason": "Company too small (1-10 employees)",
+        "count": 1
+      }
+    ],
+    "review_reasons": [
+      {
+        "reason": "Borderline score",
+        "count": 7
+      }
+    ],
+    "data_quality_issues": [],
+    "outreach_messages_written_by": {
+      "template": 8
+    }
+  },
+  "priority_queue": [
+    {
+      "priority_rank": 1,
+      "priority": "HIGH",
+      "score": 10,
+      "name": "Jack White",
+      "company": "Digital Marketing Agency",
+      "industry": "Marketing",
+      "company_size": 120,
+      "source": "Inbound demo request",
+      "reasoning": [
+        "Company size 120 -> 3/3 pts",
+        "Marketing is a core target industry (2/2 pts)",
+        "Source 'Inbound demo request' -> 3/3 pts",
+        "Last contact 2 days ago (2/2 pts)"
+      ],
+      "outreach_message": "Hi Jack,\n\nThanks for your interest in LeadFlow. For a 120-person team like Digital Marketing Agency, the quickest win is usually automating lead qualification so reps only chase ready buyers. Would Tuesday or Thursday work for a 20-minute walkthrough tailored to Marketing?\n\nBest,\nSam, LeadFlow"
+    },
+    {
+      "priority_rank": 2,
+      "priority": "HIGH",
+      "score": 9,
+      "name": "Alice Chen",
+      "company": "CloudScale AI",
+      "industry": "SaaS",
+      "company_size": 50,
+      "source": "Inbound demo request",
+      "reasoning": [
+        "Company size 50 -> 2/3 pts",
+        "SaaS is a core target industry (2/2 pts)",
+        "Source 'Inbound demo request' -> 3/3 pts",
+        "Last contact 6 days ago (2/2 pts)"
+      ],
+      "outreach_message": "Hi Alice,\n\nThanks for your interest in LeadFlow. For a 50-person team like CloudScale AI, the quickest win is usually automating lead qualification so reps only chase ready buyers. Would Tuesday or Thursday work for a 20-minute walkthrough tailored to SaaS?\n\nBest,\nSam, LeadFlow"
+    },
+    {
+      "priority_rank": 3,
+      "priority": "HIGH",
+      "score": 9,
+      "name": "Nathan Brooks",
+      "company": "Enterprise Solutions Corp",
+      "industry": "Software",
+      "company_size": 3500,
+      "source": "Inbound demo request",
+      "reasoning": [
+        "Company size 3500 -> 2/3 pts",
+        "Software is a core target industry (2/2 pts)",
+        "Source 'Inbound demo request' -> 3/3 pts",
+        "Last contact 8 days ago (2/2 pts)"
+      ],
+      "outreach_message": "Hi Nathan,\n\nThanks for your interest in LeadFlow. For a 3500-person team like Enterprise Solutions Corp, the quickest win is usually automating lead qualification so reps only chase ready buyers. Would Tuesday or Thursday work for a 20-minute walkthrough tailored to Software?\n\nBest,\nSam, LeadFlow"
+    },
+    {
+      "priority_rank": 4,
+      "priority": "HIGH",
+      "score": 9,
+      "name": "Samuel Lee",
+      "company": "Cybersecurity Startup",
+      "industry": "Cybersecurity",
+      "company_size": 60,
+      "source": "Referral",
+      "reasoning": [
+        "Company size 60 -> 2/3 pts",
+        "Cybersecurity is a core target industry (2/2 pts)",
+        "Source 'Referral' -> 3/3 pts",
+        "Last contact 12 days ago (2/2 pts)"
+      ],
+      "outreach_message": "Hi Samuel,\n\nSomeone in your network suggested I reach out. We help Cybersecurity companies like Cybersecurity Startup qualify inbound leads automatically, which tends to matter a lot for a 60-person team. Would you be open to a quick 15-minute chat next week?\n\nBest,\nSam, LeadFlow"
+    },
+    {
+      "priority_rank": 5,
+      "priority": "MEDIUM",
+      "score": 8,
+      "name": "Leon Chen",
+      "company": "FinTech Startup",
+      "industry": "FinTech",
+      "company_size": 25,
+      "source": "Referral",
+      "reasoning": [
+        "Company size 25 -> 1/3 pts",
+        "FinTech is a core target industry (2/2 pts)",
+        "Source 'Referral' -> 3/3 pts",
+        "Last contact 4 days ago (2/2 pts)"
+      ],
+      "outreach_message": "Hi Leon,\n\nSomeone in your network suggested I reach out. We help FinTech companies like FinTech Startup qualify inbound leads automatically, which tends to matter a lot for a 25-person team. Would you be open to a quick 15-minute chat next week?\n\nBest,\nSam, LeadFlow"
+    },
+    {
+      "priority_rank": 6,
+      "priority": "MEDIUM",
+      "score": 8,
+      "name": "Frank Liu",
+      "company": "Healthcare Systems Ltd",
+      "industry": "Healthcare",
+      "company_size": 1200,
+      "source": "Sales call",
+      "reasoning": [
+        "Company size 1200 -> 3/3 pts",
+        "Healthcare is an adjacent industry (1/2 pts)",
+        "Source 'Sales call' -> 2/3 pts",
+        "Last contact 9 days ago (2/2 pts)"
+      ],
+      "outreach_message": "Hi Frank,\n\nThanks for your interest in LeadFlow. For a 1200-person team like Healthcare Systems Ltd, the quickest win is usually automating lead qualification so reps only chase ready buyers. Would Tuesday or Thursday work for a 20-minute walkthrough tailored to Healthcare?\n\nBest,\nSam, LeadFlow"
+    },
+    {
+      "priority_rank": 7,
+      "priority": "MEDIUM",
+      "score": 8,
+      "name": "Quinn Matthews",
+      "company": "Consulting Firm",
+      "industry": "Consulting",
+      "company_size": 180,
+      "source": "Webinar attendee",
+      "reasoning": [
+        "Company size 180 -> 3/3 pts",
+        "Consulting is an adjacent industry (1/2 pts)",
+        "Source 'Webinar attendee' -> 2/3 pts",
+        "Last contact 10 days ago (2/2 pts)"
+      ],
+      "outreach_message": "Hi Quinn,\n\nThanks for engaging with our content. Many Consulting teams tell us manual lead triage eats hours every week. Curious - how does Consulting Firm decide today which leads your team follows up on first?\n\nBest,\nSam, LeadFlow"
+    },
+    {
+      "priority_rank": 8,
+      "priority": "MEDIUM",
+      "score": 8,
+      "name": "Xavier Lopez",
+      "company": "Data Analytics Firm",
+      "industry": "Analytics",
+      "company_size": 110,
+      "source": "Webinar attendee",
+      "reasoning": [
+        "Company size 110 -> 3/3 pts",
+        "Analytics is a core target industry (2/2 pts)",
+        "Source 'Webinar attendee' -> 2/3 pts",
+        "Last contact 30 days ago (1/2 pts)"
+      ],
+      "outreach_message": "Hi Xavier,\n\nThanks for engaging with our content. Many Analytics teams tell us manual lead triage eats hours every week. Curious - how does Data Analytics Firm decide today which leads your team follows up on first?\n\nBest,\nSam, LeadFlow"
+    }
+  ],
+  "flagged_for_review": [
+    {
+      "score": 7,
+      "name": "David Moore",
+      "company": "StartupXYZ",
+      "why_flagged": "Score 7/10 is borderline - too close to call",
+      "data_issues": [],
+      "reasoning": [
+        "Company size 3 -> 0/3 pts",
+        "SaaS is a core target industry (2/2 pts)",
+        "Source 'Referral' -> 3/3 pts",
+        "Last contact 3 days ago (2/2 pts)"
+      ],
+      "ai_second_opinion": {
+        "recommendation": "not_available",
+        "reason": "AI opinion unavailable - review manually",
+        "written_by": "none"
+      }
+    },
+    {
+      "score": 7,
+      "name": "Emma Thompson",
+      "company": "RetailWorks Solutions",
+      "why_flagged": "Score 7/10 is borderline - too close to call",
+      "data_issues": [],
+      "reasoning": [
+        "Company size 200 -> 3/3 pts",
+        "Retail is an adjacent industry (1/2 pts)",
+        "Source 'Inbound demo request' -> 3/3 pts",
+        "Last contact 72 days ago (0/2 pts)"
+      ],
+      "ai_second_opinion": {
+        "recommendation": "not_available",
+        "reason": "AI opinion unavailable - review manually",
+        "written_by": "none"
+      }
+    },
+    {
+      "score": 7,
+      "name": "Henry Park",
+      "company": "EdTech Innovations",
+      "why_flagged": "Score 7/10 is borderline - too close to call",
+      "data_issues": [],
+      "reasoning": [
+        "Company size 75 -> 2/3 pts",
+        "EdTech is a core target industry (2/2 pts)",
+        "Source 'Content download' -> 1/3 pts",
+        "Last contact 7 days ago (2/2 pts)"
+      ],
+      "ai_second_opinion": {
+        "recommendation": "not_available",
+        "reason": "AI opinion unavailable - review manually",
+        "written_by": "none"
+      }
+    },
+    {
+      "score": 7,
+      "name": "Karen Miller",
+      "company": "InsurancePro",
+      "why_flagged": "Score 7/10 is borderline - too close to call",
+      "data_issues": [],
+      "reasoning": [
+        "Company size 600 -> 3/3 pts",
+        "Insurance is an adjacent industry (1/2 pts)",
+        "Source 'Sales call' -> 2/3 pts",
+        "Last contact 37 days ago (1/2 pts)"
+      ],
+      "ai_second_opinion": {
+        "recommendation": "not_available",
+        "reason": "AI opinion unavailable - review manually",
+        "written_by": "none"
+      }
+    },
+    {
+      "score": 7,
+      "name": "Tina Patel",
+      "company": "Energy Solutions",
+      "why_flagged": "Score 7/10 is borderline - too close to call",
+      "data_issues": [],
+      "reasoning": [
+        "Company size 900 -> 3/3 pts",
+        "Energy is an adjacent industry (1/2 pts)",
+        "Source 'Inbound demo request' -> 3/3 pts",
+        "Last contact 95 days ago - stale (0/2 pts)"
+      ],
+      "ai_second_opinion": {
+        "recommendation": "not_available",
+        "reason": "AI opinion unavailable - review manually",
+        "written_by": "none"
+      }
+    },
+    {
+      "score": 7,
+      "name": "Victor Moore",
+      "company": "Real Estate Platform",
+      "why_flagged": "Score 7/10 is borderline - too close to call",
+      "data_issues": [],
+      "reasoning": [
+        "Company size 250 -> 3/3 pts",
+        "Real Estate is an adjacent industry (1/2 pts)",
+        "Source 'Sales call' -> 2/3 pts",
+        "Last contact 15 days ago (1/2 pts)"
+      ],
+      "ai_second_opinion": {
+        "recommendation": "not_available",
+        "reason": "AI opinion unavailable - review manually",
+        "written_by": "none"
+      }
+    },
+    {
+      "score": 7,
+      "name": "Zara Hassan",
+      "company": "Education Institution",
+      "why_flagged": "Score 7/10 is borderline - too close to call",
+      "data_issues": [],
+      "reasoning": [
+        "Company size 600 -> 3/3 pts",
+        "Education is an adjacent industry (1/2 pts)",
+        "Source 'Inbound demo request' -> 3/3 pts",
+        "Last contact 47 days ago (0/2 pts)"
+      ],
+      "ai_second_opinion": {
+        "recommendation": "not_available",
+        "reason": "AI opinion unavailable - review manually",
+        "written_by": "none"
+      }
+    }
+  ],
+  "disqualified": [
+    {
+      "score": 6,
+      "name": "Grace Lee",
+      "company": "Manufacturing Co",
+      "rejection_reasons": [
+        "Stale lead (no contact in 90+ days)"
+      ],
+      "reasoning": [
+        "Company size 450 -> 3/3 pts",
+        "Manufacturing is an adjacent industry (1/2 pts)",
+        "Source 'Webinar attendee' -> 2/3 pts",
+        "Last contact 108 days ago - stale (0/2 pts)"
+      ]
+    },
+    {
+      "score": 6,
+      "name": "Wendy Zhang",
+      "company": "Fashion Brand",
+      "rejection_reasons": [
+        "Weak engagement signal (cold source)"
+      ],
+      "reasoning": [
+        "Company size 400 -> 3/3 pts",
+        "Retail is an adjacent industry (1/2 pts)",
+        "Source 'Content download' -> 1/3 pts",
+        "Last contact 16 days ago (1/2 pts)"
+      ]
+    },
+    {
+      "score": 6,
+      "name": "Yuki Tanaka",
+      "company": "Travel Technology",
+      "rejection_reasons": [
+        "Industry outside target market"
+      ],
+      "reasoning": [
+        "Company size 55 -> 2/3 pts",
+        "Travel is outside our target industries (0/2 pts)",
+        "Source 'Referral' -> 3/3 pts",
+        "Last contact 17 days ago (1/2 pts)"
+      ]
+    },
+    {
+      "score": 6,
+      "name": "Aaron Benj",
+      "company": "Supply Chain Co",
+      "rejection_reasons": [
+        "Weak engagement signal (cold source)"
+      ],
+      "reasoning": [
+        "Company size 320 -> 3/3 pts",
+        "Supply Chain is an adjacent industry (1/2 pts)",
+        "Source 'LinkedIn outreach' -> 1/3 pts",
+        "Last contact 19 days ago (1/2 pts)"
+      ]
+    },
+    {
+      "score": 6,
+      "name": "Cassandra Jones",
+      "company": "Media & Entertainment",
+      "rejection_reasons": [
+        "Weak engagement signal (cold source)"
+      ],
+      "reasoning": [
+        "Company size 150 -> 3/3 pts",
+        "Media is an adjacent industry (1/2 pts)",
+        "Source 'Content download' -> 1/3 pts",
+        "Last contact 20 days ago (1/2 pts)"
+      ]
+    },
+    {
+      "score": 5,
+      "name": "Bob Rodriguez",
+      "company": "TechVentures Inc",
+      "rejection_reasons": [
+        "Company too small (1-10 employees)",
+        "Weak engagement signal (cold source)"
+      ],
+      "reasoning": [
+        "Company size 8 -> 0/3 pts",
+        "SaaS is a core target industry (2/2 pts)",
+        "Source 'LinkedIn outreach' -> 1/3 pts",
+        "Last contact 1 days ago (2/2 pts)"
+      ]
+    },
+    {
+      "score": 5,
+      "name": "Iris Patel",
+      "company": "Logistics Global",
+      "rejection_reasons": [
+        "Weak engagement signal (cold source)",
+        "Stale lead (no contact in 90+ days)"
+      ],
+      "reasoning": [
+        "Company size 800 -> 3/3 pts",
+        "Logistics is an adjacent industry (1/2 pts)",
+        "Source 'LinkedIn outreach' -> 1/3 pts",
+        "Last contact 123 days ago - stale (0/2 pts)"
+      ]
+    },
+    {
+      "score": 5,
+      "name": "Pamela White",
+      "company": "Pharma Research Inc",
+      "rejection_reasons": [
+        "Interaction cooling off (45+ days)"
+      ],
+      "reasoning": [
+        "Company size 2200 -> 2/3 pts",
+        "Pharmaceuticals is an adjacent industry (1/2 pts)",
+        "Source 'Sales call' -> 2/3 pts",
+        "Last contact 57 days ago (0/2 pts)"
+      ]
+    },
+    {
+      "score": 5,
+      "name": "Rachel Kim",
+      "company": "Government Agency",
+      "rejection_reasons": [
+        "Industry outside target market",
+        "Weak engagement signal (cold source)"
+      ],
+      "reasoning": [
+        "Company size 800 -> 3/3 pts",
+        "Government is outside our target industries (0/2 pts)",
+        "Source 'Content download' -> 1/3 pts",
+        "Last contact 42 days ago (1/2 pts)"
+      ]
+    },
+    {
+      "score": 5,
+      "name": "Bella Cross",
+      "company": "Legal Services Firm",
+      "rejection_reasons": [
+        "Interaction cooling off (45+ days)"
+      ],
+      "reasoning": [
+        "Company size 90 -> 2/3 pts",
+        "Legal is an adjacent industry (1/2 pts)",
+        "Source 'Sales call' -> 2/3 pts",
+        "Last contact 52 days ago (0/2 pts)"
+      ]
+    },
+    {
+      "score": 4,
+      "name": "Carol Singh",
+      "company": "National Bank Corp",
+      "rejection_reasons": [
+        "Weak engagement signal (cold source)",
+        "Interaction cooling off (45+ days)"
+      ],
+      "reasoning": [
+        "Company size 5000 -> 2/3 pts",
+        "Finance is an adjacent industry (1/2 pts)",
+        "Source 'Content download' -> 1/3 pts",
+        "Last contact 51 days ago (0/2 pts)"
+      ]
+    },
+    {
+      "score": 4,
+      "name": "Maya Desai",
+      "company": "Agricultural Tech",
+      "rejection_reasons": [
+        "Small company (11-49): limited budget",
+        "Industry outside target market",
+        "Weak engagement signal (cold source)"
+      ],
+      "reasoning": [
+        "Company size 45 -> 1/3 pts",
+        "Agriculture is outside our target industries (0/2 pts)",
+        "Source 'Content download' -> 1/3 pts",
+        "Last contact 5 days ago (2/2 pts)"
+      ]
+    },
+    {
+      "score": 4,
+      "name": "Uma Singh",
+      "company": "Event Planning Co",
+      "rejection_reasons": [
+        "Small company (11-49): limited budget",
+        "Industry outside target market",
+        "Weak engagement signal (cold source)"
+      ],
+      "reasoning": [
+        "Company size 35 -> 1/3 pts",
+        "Events is outside our target industries (0/2 pts)",
+        "Source 'LinkedIn outreach' -> 1/3 pts",
+        "Last contact 13 days ago (2/2 pts)"
+      ]
+    },
+    {
+      "score": 2,
+      "name": "Olivia Garcia",
+      "company": "Local Restaurant Group",
+      "rejection_reasons": [
+        "Small company (11-49): limited budget",
+        "Industry outside target market",
+        "Weak engagement signal (cold source)",
+        "Stale lead (no contact in 90+ days)"
+      ],
+      "reasoning": [
+        "Company size 12 -> 1/3 pts",
+        "Hospitality is outside our target industries (0/2 pts)",
+        "Source 'LinkedIn outreach' -> 1/3 pts",
+        "Last contact 144 days ago - stale (0/2 pts)"
+      ]
+    }
+  ],
+  "sample_outreach_messages": [
+    {
+      "priority_rank": 1,
+      "name": "Jack White",
+      "company": "Digital Marketing Agency",
+      "variant": "demo_follow_up",
+      "written_by": "template",
+      "message": "Hi Jack,\n\nThanks for your interest in LeadFlow. For a 120-person team like Digital Marketing Agency, the quickest win is usually automating lead qualification so reps only chase ready buyers. Would Tuesday or Thursday work for a 20-minute walkthrough tailored to Marketing?\n\nBest,\nSam, LeadFlow"
+    },
+    {
+      "priority_rank": 4,
+      "name": "Samuel Lee",
+      "company": "Cybersecurity Startup",
+      "variant": "warm_referral",
+      "written_by": "template",
+      "message": "Hi Samuel,\n\nSomeone in your network suggested I reach out. We help Cybersecurity companies like Cybersecurity Startup qualify inbound leads automatically, which tends to matter a lot for a 60-person team. Would you be open to a quick 15-minute chat next week?\n\nBest,\nSam, LeadFlow"
+    },
+    {
+      "priority_rank": 7,
+      "name": "Quinn Matthews",
+      "company": "Consulting Firm",
+      "variant": "value_first",
+      "written_by": "template",
+      "message": "Hi Quinn,\n\nThanks for engaging with our content. Many Consulting teams tell us manual lead triage eats hours every week. Curious - how does Consulting Firm decide today which leads your team follows up on first?\n\nBest,\nSam, LeadFlow"
+    },
+    {
+      "priority_rank": 2,
+      "name": "Alice Chen",
+      "company": "CloudScale AI",
+      "variant": "demo_follow_up",
+      "written_by": "template",
+      "message": "Hi Alice,\n\nThanks for your interest in LeadFlow. For a 50-person team like CloudScale AI, the quickest win is usually automating lead qualification so reps only chase ready buyers. Would Tuesday or Thursday work for a 20-minute walkthrough tailored to SaaS?\n\nBest,\nSam, LeadFlow"
+    },
+    {
+      "priority_rank": 3,
+      "name": "Nathan Brooks",
+      "company": "Enterprise Solutions Corp",
+      "variant": "demo_follow_up",
+      "written_by": "template",
+      "message": "Hi Nathan,\n\nThanks for your interest in LeadFlow. For a 3500-person team like Enterprise Solutions Corp, the quickest win is usually automating lead qualification so reps only chase ready buyers. Would Tuesday or Thursday work for a 20-minute walkthrough tailored to Software?\n\nBest,\nSam, LeadFlow"
+    }
+  ],
+  "all_leads": [
+    {
+      "lead_id": "1",
+      "csv_row": 2,
+      "name": "Alice Chen",
+      "first_name": "Alice",
+      "company": "CloudScale AI",
+      "company_size": 50,
+      "industry": "SaaS",
+      "source": "Inbound demo request",
+      "last_interaction_date": "2024-01-15",
+      "data_issues": [],
+      "days_since_last_interaction": 6,
+      "score": 9,
+      "score_breakdown": {
+        "company_size": 2,
+        "industry": 2,
+        "source": 3,
+        "recency": 2
+      },
+      "reasoning": [
+        "Company size 50 -> 2/3 pts",
+        "SaaS is a core target industry (2/2 pts)",
+        "Source 'Inbound demo request' -> 3/3 pts",
+        "Last contact 6 days ago (2/2 pts)"
+      ],
+      "weaknesses": [],
+      "missing_fields": [],
+      "decision": "qualified",
+      "decision_category": "Meets qualification bar",
+      "decision_reason": "Score 9/10 meets the qualification bar (8+)",
+      "priority_rank": 2,
+      "priority": "HIGH",
+      "outreach": {
+        "message": "Hi Alice,\n\nThanks for your interest in LeadFlow. For a 50-person team like CloudScale AI, the quickest win is usually automating lead qualification so reps only chase ready buyers. Would Tuesday or Thursday work for a 20-minute walkthrough tailored to SaaS?\n\nBest,\nSam, LeadFlow",
+        "variant": "demo_follow_up",
+        "written_by": "template"
+      },
+      "ai_second_opinion": null
+    },
+    {
+      "lead_id": "2",
+      "csv_row": 3,
+      "name": "Bob Rodriguez",
+      "first_name": "Bob",
+      "company": "TechVentures Inc",
+      "company_size": 8,
+      "industry": "SaaS",
+      "source": "LinkedIn outreach",
+      "last_interaction_date": "2024-01-20",
+      "data_issues": [],
+      "days_since_last_interaction": 1,
+      "score": 5,
+      "score_breakdown": {
+        "company_size": 0,
+        "industry": 2,
+        "source": 1,
+        "recency": 2
+      },
+      "reasoning": [
+        "Company size 8 -> 0/3 pts",
+        "SaaS is a core target industry (2/2 pts)",
+        "Source 'LinkedIn outreach' -> 1/3 pts",
+        "Last contact 1 days ago (2/2 pts)"
+      ],
+      "weaknesses": [
+        "Company too small (1-10 employees)",
+        "Weak engagement signal (cold source)"
+      ],
+      "missing_fields": [],
+      "decision": "rejected",
+      "decision_category": "Below review bar",
+      "decision_reason": "Score 5/10 is below the review bar (7)",
+      "priority_rank": null,
+      "priority": "NONE",
+      "outreach": null,
+      "ai_second_opinion": null
+    },
+    {
+      "lead_id": "3",
+      "csv_row": 4,
+      "name": "Carol Singh",
+      "first_name": "Carol",
+      "company": "National Bank Corp",
+      "company_size": 5000,
+      "industry": "Finance",
+      "source": "Content download",
+      "last_interaction_date": "2023-12-01",
+      "data_issues": [],
+      "days_since_last_interaction": 51,
+      "score": 4,
+      "score_breakdown": {
+        "company_size": 2,
+        "industry": 1,
+        "source": 1,
+        "recency": 0
+      },
+      "reasoning": [
+        "Company size 5000 -> 2/3 pts",
+        "Finance is an adjacent industry (1/2 pts)",
+        "Source 'Content download' -> 1/3 pts",
+        "Last contact 51 days ago (0/2 pts)"
+      ],
+      "weaknesses": [
+        "Weak engagement signal (cold source)",
+        "Interaction cooling off (45+ days)"
+      ],
+      "missing_fields": [],
+      "decision": "rejected",
+      "decision_category": "Below review bar",
+      "decision_reason": "Score 4/10 is below the review bar (7)",
+      "priority_rank": null,
+      "priority": "NONE",
+      "outreach": null,
+      "ai_second_opinion": null
+    },
+    {
+      "lead_id": "4",
+      "csv_row": 5,
+      "name": "David Moore",
+      "first_name": "David",
+      "company": "StartupXYZ",
+      "company_size": 3,
+      "industry": "SaaS",
+      "source": "Referral",
+      "last_interaction_date": "2024-01-18",
+      "data_issues": [],
+      "days_since_last_interaction": 3,
+      "score": 7,
+      "score_breakdown": {
+        "company_size": 0,
+        "industry": 2,
+        "source": 3,
+        "recency": 2
+      },
+      "reasoning": [
+        "Company size 3 -> 0/3 pts",
+        "SaaS is a core target industry (2/2 pts)",
+        "Source 'Referral' -> 3/3 pts",
+        "Last contact 3 days ago (2/2 pts)"
+      ],
+      "weaknesses": [
+        "Company too small (1-10 employees)"
+      ],
+      "missing_fields": [],
+      "decision": "review",
+      "decision_category": "Borderline score",
+      "decision_reason": "Score 7/10 is borderline - too close to call",
+      "priority_rank": null,
+      "priority": "HUMAN_REVIEW",
+      "outreach": null,
+      "ai_second_opinion": {
+        "recommendation": "not_available",
+        "reason": "AI opinion unavailable - review manually",
+        "written_by": "none"
+      }
+    },
+    {
+      "lead_id": "5",
+      "csv_row": 6,
+      "name": "Emma Thompson",
+      "first_name": "Emma",
+      "company": "RetailWorks Solutions",
+      "company_size": 200,
+      "industry": "Retail",
+      "source": "Inbound demo request",
+      "last_interaction_date": "2023-11-10",
+      "data_issues": [],
+      "days_since_last_interaction": 72,
+      "score": 7,
+      "score_breakdown": {
+        "company_size": 3,
+        "industry": 1,
+        "source": 3,
+        "recency": 0
+      },
+      "reasoning": [
+        "Company size 200 -> 3/3 pts",
+        "Retail is an adjacent industry (1/2 pts)",
+        "Source 'Inbound demo request' -> 3/3 pts",
+        "Last contact 72 days ago (0/2 pts)"
+      ],
+      "weaknesses": [
+        "Interaction cooling off (45+ days)"
+      ],
+      "missing_fields": [],
+      "decision": "review",
+      "decision_category": "Borderline score",
+      "decision_reason": "Score 7/10 is borderline - too close to call",
+      "priority_rank": null,
+      "priority": "HUMAN_REVIEW",
+      "outreach": null,
+      "ai_second_opinion": {
+        "recommendation": "not_available",
+        "reason": "AI opinion unavailable - review manually",
+        "written_by": "none"
+      }
+    },
+    {
+      "lead_id": "6",
+      "csv_row": 7,
+      "name": "Frank Liu",
+      "first_name": "Frank",
+      "company": "Healthcare Systems Ltd",
+      "company_size": 1200,
+      "industry": "Healthcare",
+      "source": "Sales call",
+      "last_interaction_date": "2024-01-12",
+      "data_issues": [],
+      "days_since_last_interaction": 9,
+      "score": 8,
+      "score_breakdown": {
+        "company_size": 3,
+        "industry": 1,
+        "source": 2,
+        "recency": 2
+      },
+      "reasoning": [
+        "Company size 1200 -> 3/3 pts",
+        "Healthcare is an adjacent industry (1/2 pts)",
+        "Source 'Sales call' -> 2/3 pts",
+        "Last contact 9 days ago (2/2 pts)"
+      ],
+      "weaknesses": [],
+      "missing_fields": [],
+      "decision": "qualified",
+      "decision_category": "Meets qualification bar",
+      "decision_reason": "Score 8/10 meets the qualification bar (8+)",
+      "priority_rank": 6,
+      "priority": "MEDIUM",
+      "outreach": {
+        "message": "Hi Frank,\n\nThanks for your interest in LeadFlow. For a 1200-person team like Healthcare Systems Ltd, the quickest win is usually automating lead qualification so reps only chase ready buyers. Would Tuesday or Thursday work for a 20-minute walkthrough tailored to Healthcare?\n\nBest,\nSam, LeadFlow",
+        "variant": "demo_follow_up",
+        "written_by": "template"
+      },
+      "ai_second_opinion": null
+    },
+    {
+      "lead_id": "7",
+      "csv_row": 8,
+      "name": "Grace Lee",
+      "first_name": "Grace",
+      "company": "Manufacturing Co",
+      "company_size": 450,
+      "industry": "Manufacturing",
+      "source": "Webinar attendee",
+      "last_interaction_date": "2023-10-05",
+      "data_issues": [],
+      "days_since_last_interaction": 108,
+      "score": 6,
+      "score_breakdown": {
+        "company_size": 3,
+        "industry": 1,
+        "source": 2,
+        "recency": 0
+      },
+      "reasoning": [
+        "Company size 450 -> 3/3 pts",
+        "Manufacturing is an adjacent industry (1/2 pts)",
+        "Source 'Webinar attendee' -> 2/3 pts",
+        "Last contact 108 days ago - stale (0/2 pts)"
+      ],
+      "weaknesses": [
+        "Stale lead (no contact in 90+ days)"
+      ],
+      "missing_fields": [],
+      "decision": "rejected",
+      "decision_category": "Below review bar",
+      "decision_reason": "Score 6/10 is below the review bar (7)",
+      "priority_rank": null,
+      "priority": "NONE",
+      "outreach": null,
+      "ai_second_opinion": null
+    },
+    {
+      "lead_id": "8",
+      "csv_row": 9,
+      "name": "Henry Park",
+      "first_name": "Henry",
+      "company": "EdTech Innovations",
+      "company_size": 75,
+      "industry": "EdTech",
+      "source": "Content download",
+      "last_interaction_date": "2024-01-14",
+      "data_issues": [],
+      "days_since_last_interaction": 7,
+      "score": 7,
+      "score_breakdown": {
+        "company_size": 2,
+        "industry": 2,
+        "source": 1,
+        "recency": 2
+      },
+      "reasoning": [
+        "Company size 75 -> 2/3 pts",
+        "EdTech is a core target industry (2/2 pts)",
+        "Source 'Content download' -> 1/3 pts",
+        "Last contact 7 days ago (2/2 pts)"
+      ],
+      "weaknesses": [
+        "Weak engagement signal (cold source)"
+      ],
+      "missing_fields": [],
+      "decision": "review",
+      "decision_category": "Borderline score",
+      "decision_reason": "Score 7/10 is borderline - too close to call",
+      "priority_rank": null,
+      "priority": "HUMAN_REVIEW",
+      "outreach": null,
+      "ai_second_opinion": {
+        "recommendation": "not_available",
+        "reason": "AI opinion unavailable - review manually",
+        "written_by": "none"
+      }
+    },
+    {
+      "lead_id": "9",
+      "csv_row": 10,
+      "name": "Iris Patel",
+      "first_name": "Iris",
+      "company": "Logistics Global",
+      "company_size": 800,
+      "industry": "Logistics",
+      "source": "LinkedIn outreach",
+      "last_interaction_date": "2023-09-20",
+      "data_issues": [],
+      "days_since_last_interaction": 123,
+      "score": 5,
+      "score_breakdown": {
+        "company_size": 3,
+        "industry": 1,
+        "source": 1,
+        "recency": 0
+      },
+      "reasoning": [
+        "Company size 800 -> 3/3 pts",
+        "Logistics is an adjacent industry (1/2 pts)",
+        "Source 'LinkedIn outreach' -> 1/3 pts",
+        "Last contact 123 days ago - stale (0/2 pts)"
+      ],
+      "weaknesses": [
+        "Weak engagement signal (cold source)",
+        "Stale lead (no contact in 90+ days)"
+      ],
+      "missing_fields": [],
+      "decision": "rejected",
+      "decision_category": "Below review bar",
+      "decision_reason": "Score 5/10 is below the review bar (7)",
+      "priority_rank": null,
+      "priority": "NONE",
+      "outreach": null,
+      "ai_second_opinion": null
+    },
+    {
+      "lead_id": "10",
+      "csv_row": 11,
+      "name": "Jack White",
+      "first_name": "Jack",
+      "company": "Digital Marketing Agency",
+      "company_size": 120,
+      "industry": "Marketing",
+      "source": "Inbound demo request",
+      "last_interaction_date": "2024-01-19",
+      "data_issues": [],
+      "days_since_last_interaction": 2,
+      "score": 10,
+      "score_breakdown": {
+        "company_size": 3,
+        "industry": 2,
+        "source": 3,
+        "recency": 2
+      },
+      "reasoning": [
+        "Company size 120 -> 3/3 pts",
+        "Marketing is a core target industry (2/2 pts)",
+        "Source 'Inbound demo request' -> 3/3 pts",
+        "Last contact 2 days ago (2/2 pts)"
+      ],
+      "weaknesses": [],
+      "missing_fields": [],
+      "decision": "qualified",
+      "decision_category": "Meets qualification bar",
+      "decision_reason": "Score 10/10 meets the qualification bar (8+)",
+      "priority_rank": 1,
+      "priority": "HIGH",
+      "outreach": {
+        "message": "Hi Jack,\n\nThanks for your interest in LeadFlow. For a 120-person team like Digital Marketing Agency, the quickest win is usually automating lead qualification so reps only chase ready buyers. Would Tuesday or Thursday work for a 20-minute walkthrough tailored to Marketing?\n\nBest,\nSam, LeadFlow",
+        "variant": "demo_follow_up",
+        "written_by": "template"
+      },
+      "ai_second_opinion": null
+    },
+    {
+      "lead_id": "11",
+      "csv_row": 12,
+      "name": "Karen Miller",
+      "first_name": "Karen",
+      "company": "InsurancePro",
+      "company_size": 600,
+      "industry": "Insurance",
+      "source": "Sales call",
+      "last_interaction_date": "2023-12-15",
+      "data_issues": [],
+      "days_since_last_interaction": 37,
+      "score": 7,
+      "score_breakdown": {
+        "company_size": 3,
+        "industry": 1,
+        "source": 2,
+        "recency": 1
+      },
+      "reasoning": [
+        "Company size 600 -> 3/3 pts",
+        "Insurance is an adjacent industry (1/2 pts)",
+        "Source 'Sales call' -> 2/3 pts",
+        "Last contact 37 days ago (1/2 pts)"
+      ],
+      "weaknesses": [],
+      "missing_fields": [],
+      "decision": "review",
+      "decision_category": "Borderline score",
+      "decision_reason": "Score 7/10 is borderline - too close to call",
+      "priority_rank": null,
+      "priority": "HUMAN_REVIEW",
+      "outreach": null,
+      "ai_second_opinion": {
+        "recommendation": "not_available",
+        "reason": "AI opinion unavailable - review manually",
+        "written_by": "none"
+      }
+    },
+    {
+      "lead_id": "12",
+      "csv_row": 13,
+      "name": "Leon Chen",
+      "first_name": "Leon",
+      "company": "FinTech Startup",
+      "company_size": 25,
+      "industry": "FinTech",
+      "source": "Referral",
+      "last_interaction_date": "2024-01-17",
+      "data_issues": [],
+      "days_since_last_interaction": 4,
+      "score": 8,
+      "score_breakdown": {
+        "company_size": 1,
+        "industry": 2,
+        "source": 3,
+        "recency": 2
+      },
+      "reasoning": [
+        "Company size 25 -> 1/3 pts",
+        "FinTech is a core target industry (2/2 pts)",
+        "Source 'Referral' -> 3/3 pts",
+        "Last contact 4 days ago (2/2 pts)"
+      ],
+      "weaknesses": [
+        "Small company (11-49): limited budget"
+      ],
+      "missing_fields": [],
+      "decision": "qualified",
+      "decision_category": "Meets qualification bar",
+      "decision_reason": "Score 8/10 meets the qualification bar (8+)",
+      "priority_rank": 5,
+      "priority": "MEDIUM",
+      "outreach": {
+        "message": "Hi Leon,\n\nSomeone in your network suggested I reach out. We help FinTech companies like FinTech Startup qualify inbound leads automatically, which tends to matter a lot for a 25-person team. Would you be open to a quick 15-minute chat next week?\n\nBest,\nSam, LeadFlow",
+        "variant": "warm_referral",
+        "written_by": "template"
+      },
+      "ai_second_opinion": null
+    },
+    {
+      "lead_id": "13",
+      "csv_row": 14,
+      "name": "Maya Desai",
+      "first_name": "Maya",
+      "company": "Agricultural Tech",
+      "company_size": 45,
+      "industry": "Agriculture",
+      "source": "Content download",
+      "last_interaction_date": "2024-01-16",
+      "data_issues": [],
+      "days_since_last_interaction": 5,
+      "score": 4,
+      "score_breakdown": {
+        "company_size": 1,
+        "industry": 0,
+        "source": 1,
+        "recency": 2
+      },
+      "reasoning": [
+        "Company size 45 -> 1/3 pts",
+        "Agriculture is outside our target industries (0/2 pts)",
+        "Source 'Content download' -> 1/3 pts",
+        "Last contact 5 days ago (2/2 pts)"
+      ],
+      "weaknesses": [
+        "Small company (11-49): limited budget",
+        "Industry outside target market",
+        "Weak engagement signal (cold source)"
+      ],
+      "missing_fields": [],
+      "decision": "rejected",
+      "decision_category": "Below review bar",
+      "decision_reason": "Score 4/10 is below the review bar (7)",
+      "priority_rank": null,
+      "priority": "NONE",
+      "outreach": null,
+      "ai_second_opinion": null
+    },
+    {
+      "lead_id": "14",
+      "csv_row": 15,
+      "name": "Nathan Brooks",
+      "first_name": "Nathan",
+      "company": "Enterprise Solutions Corp",
+      "company_size": 3500,
+      "industry": "Software",
+      "source": "Inbound demo request",
+      "last_interaction_date": "2024-01-13",
+      "data_issues": [],
+      "days_since_last_interaction": 8,
+      "score": 9,
+      "score_breakdown": {
+        "company_size": 2,
+        "industry": 2,
+        "source": 3,
+        "recency": 2
+      },
+      "reasoning": [
+        "Company size 3500 -> 2/3 pts",
+        "Software is a core target industry (2/2 pts)",
+        "Source 'Inbound demo request' -> 3/3 pts",
+        "Last contact 8 days ago (2/2 pts)"
+      ],
+      "weaknesses": [],
+      "missing_fields": [],
+      "decision": "qualified",
+      "decision_category": "Meets qualification bar",
+      "decision_reason": "Score 9/10 meets the qualification bar (8+)",
+      "priority_rank": 3,
+      "priority": "HIGH",
+      "outreach": {
+        "message": "Hi Nathan,\n\nThanks for your interest in LeadFlow. For a 3500-person team like Enterprise Solutions Corp, the quickest win is usually automating lead qualification so reps only chase ready buyers. Would Tuesday or Thursday work for a 20-minute walkthrough tailored to Software?\n\nBest,\nSam, LeadFlow",
+        "variant": "demo_follow_up",
+        "written_by": "template"
+      },
+      "ai_second_opinion": null
+    },
+    {
+      "lead_id": "15",
+      "csv_row": 16,
+      "name": "Olivia Garcia",
+      "first_name": "Olivia",
+      "company": "Local Restaurant Group",
+      "company_size": 12,
+      "industry": "Hospitality",
+      "source": "LinkedIn outreach",
+      "last_interaction_date": "2023-08-30",
+      "data_issues": [],
+      "days_since_last_interaction": 144,
+      "score": 2,
+      "score_breakdown": {
+        "company_size": 1,
+        "industry": 0,
+        "source": 1,
+        "recency": 0
+      },
+      "reasoning": [
+        "Company size 12 -> 1/3 pts",
+        "Hospitality is outside our target industries (0/2 pts)",
+        "Source 'LinkedIn outreach' -> 1/3 pts",
+        "Last contact 144 days ago - stale (0/2 pts)"
+      ],
+      "weaknesses": [
+        "Small company (11-49): limited budget",
+        "Industry outside target market",
+        "Weak engagement signal (cold source)",
+        "Stale lead (no contact in 90+ days)"
+      ],
+      "missing_fields": [],
+      "decision": "rejected",
+      "decision_category": "Below review bar",
+      "decision_reason": "Score 2/10 is below the review bar (7)",
+      "priority_rank": null,
+      "priority": "NONE",
+      "outreach": null,
+      "ai_second_opinion": null
+    },
+    {
+      "lead_id": "16",
+      "csv_row": 17,
+      "name": "Pamela White",
+      "first_name": "Pamela",
+      "company": "Pharma Research Inc",
+      "company_size": 2200,
+      "industry": "Pharmaceuticals",
+      "source": "Sales call",
+      "last_interaction_date": "2023-11-25",
+      "data_issues": [],
+      "days_since_last_interaction": 57,
+      "score": 5,
+      "score_breakdown": {
+        "company_size": 2,
+        "industry": 1,
+        "source": 2,
+        "recency": 0
+      },
+      "reasoning": [
+        "Company size 2200 -> 2/3 pts",
+        "Pharmaceuticals is an adjacent industry (1/2 pts)",
+        "Source 'Sales call' -> 2/3 pts",
+        "Last contact 57 days ago (0/2 pts)"
+      ],
+      "weaknesses": [
+        "Interaction cooling off (45+ days)"
+      ],
+      "missing_fields": [],
+      "decision": "rejected",
+      "decision_category": "Below review bar",
+      "decision_reason": "Score 5/10 is below the review bar (7)",
+      "priority_rank": null,
+      "priority": "NONE",
+      "outreach": null,
+      "ai_second_opinion": null
+    },
+    {
+      "lead_id": "17",
+      "csv_row": 18,
+      "name": "Quinn Matthews",
+      "first_name": "Quinn",
+      "company": "Consulting Firm",
+      "company_size": 180,
+      "industry": "Consulting",
+      "source": "Webinar attendee",
+      "last_interaction_date": "2024-01-11",
+      "data_issues": [],
+      "days_since_last_interaction": 10,
+      "score": 8,
+      "score_breakdown": {
+        "company_size": 3,
+        "industry": 1,
+        "source": 2,
+        "recency": 2
+      },
+      "reasoning": [
+        "Company size 180 -> 3/3 pts",
+        "Consulting is an adjacent industry (1/2 pts)",
+        "Source 'Webinar attendee' -> 2/3 pts",
+        "Last contact 10 days ago (2/2 pts)"
+      ],
+      "weaknesses": [],
+      "missing_fields": [],
+      "decision": "qualified",
+      "decision_category": "Meets qualification bar",
+      "decision_reason": "Score 8/10 meets the qualification bar (8+)",
+      "priority_rank": 7,
+      "priority": "MEDIUM",
+      "outreach": {
+        "message": "Hi Quinn,\n\nThanks for engaging with our content. Many Consulting teams tell us manual lead triage eats hours every week. Curious - how does Consulting Firm decide today which leads your team follows up on first?\n\nBest,\nSam, LeadFlow",
+        "variant": "value_first",
+        "written_by": "template"
+      },
+      "ai_second_opinion": null
+    },
+    {
+      "lead_id": "18",
+      "csv_row": 19,
+      "name": "Rachel Kim",
+      "first_name": "Rachel",
+      "company": "Government Agency",
+      "company_size": 800,
+      "industry": "Government",
+      "source": "Content download",
+      "last_interaction_date": "2023-12-10",
+      "data_issues": [],
+      "days_since_last_interaction": 42,
+      "score": 5,
+      "score_breakdown": {
+        "company_size": 3,
+        "industry": 0,
+        "source": 1,
+        "recency": 1
+      },
+      "reasoning": [
+        "Company size 800 -> 3/3 pts",
+        "Government is outside our target industries (0/2 pts)",
+        "Source 'Content download' -> 1/3 pts",
+        "Last contact 42 days ago (1/2 pts)"
+      ],
+      "weaknesses": [
+        "Industry outside target market",
+        "Weak engagement signal (cold source)"
+      ],
+      "missing_fields": [],
+      "decision": "rejected",
+      "decision_category": "Below review bar",
+      "decision_reason": "Score 5/10 is below the review bar (7)",
+      "priority_rank": null,
+      "priority": "NONE",
+      "outreach": null,
+      "ai_second_opinion": null
+    },
+    {
+      "lead_id": "19",
+      "csv_row": 20,
+      "name": "Samuel Lee",
+      "first_name": "Samuel",
+      "company": "Cybersecurity Startup",
+      "company_size": 60,
+      "industry": "Cybersecurity",
+      "source": "Referral",
+      "last_interaction_date": "2024-01-09",
+      "data_issues": [],
+      "days_since_last_interaction": 12,
+      "score": 9,
+      "score_breakdown": {
+        "company_size": 2,
+        "industry": 2,
+        "source": 3,
+        "recency": 2
+      },
+      "reasoning": [
+        "Company size 60 -> 2/3 pts",
+        "Cybersecurity is a core target industry (2/2 pts)",
+        "Source 'Referral' -> 3/3 pts",
+        "Last contact 12 days ago (2/2 pts)"
+      ],
+      "weaknesses": [],
+      "missing_fields": [],
+      "decision": "qualified",
+      "decision_category": "Meets qualification bar",
+      "decision_reason": "Score 9/10 meets the qualification bar (8+)",
+      "priority_rank": 4,
+      "priority": "HIGH",
+      "outreach": {
+        "message": "Hi Samuel,\n\nSomeone in your network suggested I reach out. We help Cybersecurity companies like Cybersecurity Startup qualify inbound leads automatically, which tends to matter a lot for a 60-person team. Would you be open to a quick 15-minute chat next week?\n\nBest,\nSam, LeadFlow",
+        "variant": "warm_referral",
+        "written_by": "template"
+      },
+      "ai_second_opinion": null
+    },
+    {
+      "lead_id": "20",
+      "csv_row": 21,
+      "name": "Tina Patel",
+      "first_name": "Tina",
+      "company": "Energy Solutions",
+      "company_size": 900,
+      "industry": "Energy",
+      "source": "Inbound demo request",
+      "last_interaction_date": "2023-10-18",
+      "data_issues": [],
+      "days_since_last_interaction": 95,
+      "score": 7,
+      "score_breakdown": {
+        "company_size": 3,
+        "industry": 1,
+        "source": 3,
+        "recency": 0
+      },
+      "reasoning": [
+        "Company size 900 -> 3/3 pts",
+        "Energy is an adjacent industry (1/2 pts)",
+        "Source 'Inbound demo request' -> 3/3 pts",
+        "Last contact 95 days ago - stale (0/2 pts)"
+      ],
+      "weaknesses": [
+        "Stale lead (no contact in 90+ days)"
+      ],
+      "missing_fields": [],
+      "decision": "review",
+      "decision_category": "Borderline score",
+      "decision_reason": "Score 7/10 is borderline - too close to call",
+      "priority_rank": null,
+      "priority": "HUMAN_REVIEW",
+      "outreach": null,
+      "ai_second_opinion": {
+        "recommendation": "not_available",
+        "reason": "AI opinion unavailable - review manually",
+        "written_by": "none"
+      }
+    },
+    {
+      "lead_id": "21",
+      "csv_row": 22,
+      "name": "Uma Singh",
+      "first_name": "Uma",
+      "company": "Event Planning Co",
+      "company_size": 35,
+      "industry": "Events",
+      "source": "LinkedIn outreach",
+      "last_interaction_date": "2024-01-08",
+      "data_issues": [],
+      "days_since_last_interaction": 13,
+      "score": 4,
+      "score_breakdown": {
+        "company_size": 1,
+        "industry": 0,
+        "source": 1,
+        "recency": 2
+      },
+      "reasoning": [
+        "Company size 35 -> 1/3 pts",
+        "Events is outside our target industries (0/2 pts)",
+        "Source 'LinkedIn outreach' -> 1/3 pts",
+        "Last contact 13 days ago (2/2 pts)"
+      ],
+      "weaknesses": [
+        "Small company (11-49): limited budget",
+        "Industry outside target market",
+        "Weak engagement signal (cold source)"
+      ],
+      "missing_fields": [],
+      "decision": "rejected",
+      "decision_category": "Below review bar",
+      "decision_reason": "Score 4/10 is below the review bar (7)",
+      "priority_rank": null,
+      "priority": "NONE",
+      "outreach": null,
+      "ai_second_opinion": null
+    },
+    {
+      "lead_id": "22",
+      "csv_row": 23,
+      "name": "Victor Moore",
+      "first_name": "Victor",
+      "company": "Real Estate Platform",
+      "company_size": 250,
+      "industry": "Real Estate",
+      "source": "Sales call",
+      "last_interaction_date": "2024-01-06",
+      "data_issues": [],
+      "days_since_last_interaction": 15,
+      "score": 7,
+      "score_breakdown": {
+        "company_size": 3,
+        "industry": 1,
+        "source": 2,
+        "recency": 1
+      },
+      "reasoning": [
+        "Company size 250 -> 3/3 pts",
+        "Real Estate is an adjacent industry (1/2 pts)",
+        "Source 'Sales call' -> 2/3 pts",
+        "Last contact 15 days ago (1/2 pts)"
+      ],
+      "weaknesses": [],
+      "missing_fields": [],
+      "decision": "review",
+      "decision_category": "Borderline score",
+      "decision_reason": "Score 7/10 is borderline - too close to call",
+      "priority_rank": null,
+      "priority": "HUMAN_REVIEW",
+      "outreach": null,
+      "ai_second_opinion": {
+        "recommendation": "not_available",
+        "reason": "AI opinion unavailable - review manually",
+        "written_by": "none"
+      }
+    },
+    {
+      "lead_id": "23",
+      "csv_row": 24,
+      "name": "Wendy Zhang",
+      "first_name": "Wendy",
+      "company": "Fashion Brand",
+      "company_size": 400,
+      "industry": "Retail",
+      "source": "Content download",
+      "last_interaction_date": "2024-01-05",
+      "data_issues": [],
+      "days_since_last_interaction": 16,
+      "score": 6,
+      "score_breakdown": {
+        "company_size": 3,
+        "industry": 1,
+        "source": 1,
+        "recency": 1
+      },
+      "reasoning": [
+        "Company size 400 -> 3/3 pts",
+        "Retail is an adjacent industry (1/2 pts)",
+        "Source 'Content download' -> 1/3 pts",
+        "Last contact 16 days ago (1/2 pts)"
+      ],
+      "weaknesses": [
+        "Weak engagement signal (cold source)"
+      ],
+      "missing_fields": [],
+      "decision": "rejected",
+      "decision_category": "Below review bar",
+      "decision_reason": "Score 6/10 is below the review bar (7)",
+      "priority_rank": null,
+      "priority": "NONE",
+      "outreach": null,
+      "ai_second_opinion": null
+    },
+    {
+      "lead_id": "24",
+      "csv_row": 25,
+      "name": "Xavier Lopez",
+      "first_name": "Xavier",
+      "company": "Data Analytics Firm",
+      "company_size": 110,
+      "industry": "Analytics",
+      "source": "Webinar attendee",
+      "last_interaction_date": "2023-12-22",
+      "data_issues": [],
+      "days_since_last_interaction": 30,
+      "score": 8,
+      "score_breakdown": {
+        "company_size": 3,
+        "industry": 2,
+        "source": 2,
+        "recency": 1
+      },
+      "reasoning": [
+        "Company size 110 -> 3/3 pts",
+        "Analytics is a core target industry (2/2 pts)",
+        "Source 'Webinar attendee' -> 2/3 pts",
+        "Last contact 30 days ago (1/2 pts)"
+      ],
+      "weaknesses": [],
+      "missing_fields": [],
+      "decision": "qualified",
+      "decision_category": "Meets qualification bar",
+      "decision_reason": "Score 8/10 meets the qualification bar (8+)",
+      "priority_rank": 8,
+      "priority": "MEDIUM",
+      "outreach": {
+        "message": "Hi Xavier,\n\nThanks for engaging with our content. Many Analytics teams tell us manual lead triage eats hours every week. Curious - how does Data Analytics Firm decide today which leads your team follows up on first?\n\nBest,\nSam, LeadFlow",
+        "variant": "value_first",
+        "written_by": "template"
+      },
+      "ai_second_opinion": null
+    },
+    {
+      "lead_id": "25",
+      "csv_row": 26,
+      "name": "Yuki Tanaka",
+      "first_name": "Yuki",
+      "company": "Travel Technology",
+      "company_size": 55,
+      "industry": "Travel",
+      "source": "Referral",
+      "last_interaction_date": "2024-01-04",
+      "data_issues": [],
+      "days_since_last_interaction": 17,
+      "score": 6,
+      "score_breakdown": {
+        "company_size": 2,
+        "industry": 0,
+        "source": 3,
+        "recency": 1
+      },
+      "reasoning": [
+        "Company size 55 -> 2/3 pts",
+        "Travel is outside our target industries (0/2 pts)",
+        "Source 'Referral' -> 3/3 pts",
+        "Last contact 17 days ago (1/2 pts)"
+      ],
+      "weaknesses": [
+        "Industry outside target market"
+      ],
+      "missing_fields": [],
+      "decision": "rejected",
+      "decision_category": "Below review bar",
+      "decision_reason": "Score 6/10 is below the review bar (7)",
+      "priority_rank": null,
+      "priority": "NONE",
+      "outreach": null,
+      "ai_second_opinion": null
+    },
+    {
+      "lead_id": "26",
+      "csv_row": 27,
+      "name": "Zara Hassan",
+      "first_name": "Zara",
+      "company": "Education Institution",
+      "company_size": 600,
+      "industry": "Education",
+      "source": "Inbound demo request",
+      "last_interaction_date": "2023-12-05",
+      "data_issues": [],
+      "days_since_last_interaction": 47,
+      "score": 7,
+      "score_breakdown": {
+        "company_size": 3,
+        "industry": 1,
+        "source": 3,
+        "recency": 0
+      },
+      "reasoning": [
+        "Company size 600 -> 3/3 pts",
+        "Education is an adjacent industry (1/2 pts)",
+        "Source 'Inbound demo request' -> 3/3 pts",
+        "Last contact 47 days ago (0/2 pts)"
+      ],
+      "weaknesses": [
+        "Interaction cooling off (45+ days)"
+      ],
+      "missing_fields": [],
+      "decision": "review",
+      "decision_category": "Borderline score",
+      "decision_reason": "Score 7/10 is borderline - too close to call",
+      "priority_rank": null,
+      "priority": "HUMAN_REVIEW",
+      "outreach": null,
+      "ai_second_opinion": {
+        "recommendation": "not_available",
+        "reason": "AI opinion unavailable - review manually",
+        "written_by": "none"
+      }
+    },
+    {
+      "lead_id": "27",
+      "csv_row": 28,
+      "name": "Aaron Benj",
+      "first_name": "Aaron",
+      "company": "Supply Chain Co",
+      "company_size": 320,
+      "industry": "Supply Chain",
+      "source": "LinkedIn outreach",
+      "last_interaction_date": "2024-01-02",
+      "data_issues": [],
+      "days_since_last_interaction": 19,
+      "score": 6,
+      "score_breakdown": {
+        "company_size": 3,
+        "industry": 1,
+        "source": 1,
+        "recency": 1
+      },
+      "reasoning": [
+        "Company size 320 -> 3/3 pts",
+        "Supply Chain is an adjacent industry (1/2 pts)",
+        "Source 'LinkedIn outreach' -> 1/3 pts",
+        "Last contact 19 days ago (1/2 pts)"
+      ],
+      "weaknesses": [
+        "Weak engagement signal (cold source)"
+      ],
+      "missing_fields": [],
+      "decision": "rejected",
+      "decision_category": "Below review bar",
+      "decision_reason": "Score 6/10 is below the review bar (7)",
+      "priority_rank": null,
+      "priority": "NONE",
+      "outreach": null,
+      "ai_second_opinion": null
+    },
+    {
+      "lead_id": "28",
+      "csv_row": 29,
+      "name": "Bella Cross",
+      "first_name": "Bella",
+      "company": "Legal Services Firm",
+      "company_size": 90,
+      "industry": "Legal",
+      "source": "Sales call",
+      "last_interaction_date": "2023-11-30",
+      "data_issues": [],
+      "days_since_last_interaction": 52,
+      "score": 5,
+      "score_breakdown": {
+        "company_size": 2,
+        "industry": 1,
+        "source": 2,
+        "recency": 0
+      },
+      "reasoning": [
+        "Company size 90 -> 2/3 pts",
+        "Legal is an adjacent industry (1/2 pts)",
+        "Source 'Sales call' -> 2/3 pts",
+        "Last contact 52 days ago (0/2 pts)"
+      ],
+      "weaknesses": [
+        "Interaction cooling off (45+ days)"
+      ],
+      "missing_fields": [],
+      "decision": "rejected",
+      "decision_category": "Below review bar",
+      "decision_reason": "Score 5/10 is below the review bar (7)",
+      "priority_rank": null,
+      "priority": "NONE",
+      "outreach": null,
+      "ai_second_opinion": null
+    },
+    {
+      "lead_id": "29",
+      "csv_row": 30,
+      "name": "Cassandra Jones",
+      "first_name": "Cassandra",
+      "company": "Media & Entertainment",
+      "company_size": 150,
+      "industry": "Media",
+      "source": "Content download",
+      "last_interaction_date": "2024-01-01",
+      "data_issues": [],
+      "days_since_last_interaction": 20,
+      "score": 6,
+      "score_breakdown": {
+        "company_size": 3,
+        "industry": 1,
+        "source": 1,
+        "recency": 1
+      },
+      "reasoning": [
+        "Company size 150 -> 3/3 pts",
+        "Media is an adjacent industry (1/2 pts)",
+        "Source 'Content download' -> 1/3 pts",
+        "Last contact 20 days ago (1/2 pts)"
+      ],
+      "weaknesses": [
+        "Weak engagement signal (cold source)"
+      ],
+      "missing_fields": [],
+      "decision": "rejected",
+      "decision_category": "Below review bar",
+      "decision_reason": "Score 6/10 is below the review bar (7)",
+      "priority_rank": null,
+      "priority": "NONE",
+      "outreach": null,
+      "ai_second_opinion": null
+    }
+  ]
+}

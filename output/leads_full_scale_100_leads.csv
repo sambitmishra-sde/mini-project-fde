@@ -1,0 +1,276 @@
+priority_rank,decision,priority,score,name,company,company_size,industry,source,last_interaction_date,decision_reason,reasoning,data_issues,ai_second_opinion,outreach_message
+1,qualified,HIGH,10,Jack White,Digital Marketing Agency,120,Marketing,Inbound demo request,2024-01-19,Score 10/10 meets the qualification bar (8+),Company size 120 -> 3/3 pts | Marketing is a core target industry (2/2 pts) | Source 'Inbound demo request' -> 3/3 pts | Last contact 2 days ago (2/2 pts),,,"Hi Jack,
+
+Thanks for your interest in LeadFlow. For a 120-person team like Digital Marketing Agency, the quickest win is usually automating lead qualification so reps only chase ready buyers. Would Tuesday or Thursday work for a 20-minute walkthrough tailored to Marketing?
+
+Best,
+Sam, LeadFlow"
+2,qualified,HIGH,10,Derek Johnson,Cloud Infrastructure,200,SaaS,Inbound demo request,2024-01-19,Score 10/10 meets the qualification bar (8+),Company size 200 -> 3/3 pts | SaaS is a core target industry (2/2 pts) | Source 'Inbound demo request' -> 3/3 pts | Last contact 2 days ago (2/2 pts),,,"Hi Derek,
+
+Thanks for your interest in LeadFlow. For a 200-person team like Cloud Infrastructure, the quickest win is usually automating lead qualification so reps only chase ready buyers. Would Tuesday or Thursday work for a 20-minute walkthrough tailored to SaaS?
+
+Best,
+Sam, LeadFlow"
+3,qualified,HIGH,10,Dominic Wheeler,Payment Processing,500,FinTech,Inbound demo request,2024-01-17,Score 10/10 meets the qualification bar (8+),Company size 500 -> 3/3 pts | FinTech is a core target industry (2/2 pts) | Source 'Inbound demo request' -> 3/3 pts | Last contact 4 days ago (2/2 pts),,,"Hi Dominic,
+
+Thanks for your interest in LeadFlow. For a 500-person team like Payment Processing, the quickest win is usually automating lead qualification so reps only chase ready buyers. Would Tuesday or Thursday work for a 20-minute walkthrough tailored to FinTech?
+
+Best,
+Sam, LeadFlow"
+4,qualified,HIGH,9,James Wilson,Property Management,180,Real Estate,Inbound demo request,2024-01-18,Score 9/10 meets the qualification bar (8+),Company size 180 -> 3/3 pts | Real Estate is an adjacent industry (1/2 pts) | Source 'Inbound demo request' -> 3/3 pts | Last contact 3 days ago (2/2 pts),,,"Hi James,
+
+Thanks for your interest in LeadFlow. For a 180-person team like Property Management, the quickest win is usually automating lead qualification so reps only chase ready buyers. Would Tuesday or Thursday work for a 20-minute walkthrough tailored to Real Estate?
+
+Best,
+Sam, LeadFlow"
+5,qualified,HIGH,9,Chloe Mitchell,Supply Chain Analytics,60,Software,Referral,2024-01-18,Score 9/10 meets the qualification bar (8+),Company size 60 -> 2/3 pts | Software is a core target industry (2/2 pts) | Source 'Referral' -> 3/3 pts | Last contact 3 days ago (2/2 pts),,,"Hi Chloe,
+
+Someone in your network suggested I reach out. We help Software companies like Supply Chain Analytics qualify inbound leads automatically, which tends to matter a lot for a 60-person team. Would you be open to a quick 15-minute chat next week?
+
+Best,
+Sam, LeadFlow"
+6,qualified,HIGH,9,Alice Chen,CloudScale AI,50,SaaS,Inbound demo request,2024-01-15,Score 9/10 meets the qualification bar (8+),Company size 50 -> 2/3 pts | SaaS is a core target industry (2/2 pts) | Source 'Inbound demo request' -> 3/3 pts | Last contact 6 days ago (2/2 pts),,,"Hi Alice,
+
+Thanks for your interest in LeadFlow. For a 50-person team like CloudScale AI, the quickest win is usually automating lead qualification so reps only chase ready buyers. Would Tuesday or Thursday work for a 20-minute walkthrough tailored to SaaS?
+
+Best,
+Sam, LeadFlow"
+7,qualified,HIGH,9,Franklin Hayes,Accounting Software,220,Software,Sales call,2024-01-15,Score 9/10 meets the qualification bar (8+),Company size 220 -> 3/3 pts | Software is a core target industry (2/2 pts) | Source 'Sales call' -> 2/3 pts | Last contact 6 days ago (2/2 pts),,,"Hi Franklin,
+
+Thanks for your interest in LeadFlow. For a 220-person team like Accounting Software, the quickest win is usually automating lead qualification so reps only chase ready buyers. Would Tuesday or Thursday work for a 20-minute walkthrough tailored to Software?
+
+Best,
+Sam, LeadFlow"
+8,qualified,HIGH,9,Gina Reeves,E-commerce Platform,140,SaaS,Webinar attendee,2024-01-14,Score 9/10 meets the qualification bar (8+),Company size 140 -> 3/3 pts | SaaS is a core target industry (2/2 pts) | Source 'Webinar attendee' -> 2/3 pts | Last contact 7 days ago (2/2 pts),,,"Hi Gina,
+
+Thanks for engaging with our content. Many SaaS teams tell us manual lead triage eats hours every week. Curious - how does E-commerce Platform decide today which leads your team follows up on first?
+
+Best,
+Sam, LeadFlow"
+9,qualified,HIGH,9,Nathan Brooks,Enterprise Solutions Corp,3500,Software,Inbound demo request,2024-01-13,Score 9/10 meets the qualification bar (8+),Company size 3500 -> 2/3 pts | Software is a core target industry (2/2 pts) | Source 'Inbound demo request' -> 3/3 pts | Last contact 8 days ago (2/2 pts),,,"Hi Nathan,
+
+Thanks for your interest in LeadFlow. For a 3500-person team like Enterprise Solutions Corp, the quickest win is usually automating lead qualification so reps only chase ready buyers. Would Tuesday or Thursday work for a 20-minute walkthrough tailored to Software?
+
+Best,
+Sam, LeadFlow"
+10,qualified,HIGH,9,Olivia Martinez,Renewable Energy Corp,600,Energy,Inbound demo request,2024-01-12,Score 9/10 meets the qualification bar (8+),Company size 600 -> 3/3 pts | Energy is an adjacent industry (1/2 pts) | Source 'Inbound demo request' -> 3/3 pts | Last contact 9 days ago (2/2 pts),,,"Hi Olivia,
+
+Thanks for your interest in LeadFlow. For a 600-person team like Renewable Energy Corp, the quickest win is usually automating lead qualification so reps only chase ready buyers. Would Tuesday or Thursday work for a 20-minute walkthrough tailored to Energy?
+
+Best,
+Sam, LeadFlow"
+11,qualified,HIGH,9,Iris Wagner,Telecommunications Equipment,2000,Telecom,Referral,2024-01-12,Score 9/10 meets the qualification bar (8+),Company size 2000 -> 3/3 pts | Telecom is an adjacent industry (1/2 pts) | Source 'Referral' -> 3/3 pts | Last contact 9 days ago (2/2 pts),,,"Hi Iris,
+
+Someone in your network suggested I reach out. We help Telecom companies like Telecommunications Equipment qualify inbound leads automatically, which tends to matter a lot for a 2000-person team. Would you be open to a quick 15-minute chat next week?
+
+Best,
+Sam, LeadFlow"
+12,qualified,HIGH,9,Jerome Long,Logistics Optimization,85,Software,Inbound demo request,2024-01-11,Score 9/10 meets the qualification bar (8+),Company size 85 -> 2/3 pts | Software is a core target industry (2/2 pts) | Source 'Inbound demo request' -> 3/3 pts | Last contact 10 days ago (2/2 pts),,,"Hi Jerome,
+
+Thanks for your interest in LeadFlow. For a 85-person team like Logistics Optimization, the quickest win is usually automating lead qualification so reps only chase ready buyers. Would Tuesday or Thursday work for a 20-minute walkthrough tailored to Software?
+
+Best,
+Sam, LeadFlow"
+13,qualified,HIGH,9,Samuel Lee,Cybersecurity Startup,60,Cybersecurity,Referral,2024-01-09,Score 9/10 meets the qualification bar (8+),Company size 60 -> 2/3 pts | Cybersecurity is a core target industry (2/2 pts) | Source 'Referral' -> 3/3 pts | Last contact 12 days ago (2/2 pts),,,"Hi Samuel,
+
+Someone in your network suggested I reach out. We help Cybersecurity companies like Cybersecurity Startup qualify inbound leads automatically, which tends to matter a lot for a 60-person team. Would you be open to a quick 15-minute chat next week?
+
+Best,
+Sam, LeadFlow"
+14,qualified,MEDIUM,8,Amelia Davis,Cybersecurity Consulting,95,Cybersecurity,Sales call,2024-01-20,Score 8/10 meets the qualification bar (8+),Company size 95 -> 2/3 pts | Cybersecurity is a core target industry (2/2 pts) | Source 'Sales call' -> 2/3 pts | Last contact 1 days ago (2/2 pts),,,"Hi Amelia,
+
+Thanks for your interest in LeadFlow. For a 95-person team like Cybersecurity Consulting, the quickest win is usually automating lead qualification so reps only chase ready buyers. Would Tuesday or Thursday work for a 20-minute walkthrough tailored to Cybersecurity?
+
+Best,
+Sam, LeadFlow"
+15,qualified,MEDIUM,8,Bradley Foster,Cloud Storage,800,SaaS,Content download,2024-01-19,Score 8/10 meets the qualification bar (8+),Company size 800 -> 3/3 pts | SaaS is a core target industry (2/2 pts) | Source 'Content download' -> 1/3 pts | Last contact 2 days ago (2/2 pts),,,"Hi Bradley,
+
+Thanks for engaging with our content. Many SaaS teams tell us manual lead triage eats hours every week. Curious - how does Cloud Storage decide today which leads your team follows up on first?
+
+Best,
+Sam, LeadFlow"
+16,qualified,MEDIUM,8,Leon Chen,FinTech Startup,25,FinTech,Referral,2024-01-17,Score 8/10 meets the qualification bar (8+),Company size 25 -> 1/3 pts | FinTech is a core target industry (2/2 pts) | Source 'Referral' -> 3/3 pts | Last contact 4 days ago (2/2 pts),,,"Hi Leon,
+
+Someone in your network suggested I reach out. We help FinTech companies like FinTech Startup qualify inbound leads automatically, which tends to matter a lot for a 25-person team. Would you be open to a quick 15-minute chat next week?
+
+Best,
+Sam, LeadFlow"
+17,qualified,MEDIUM,8,Isabella Romano,Luxury Hotels,350,Hospitality,Referral,2024-01-16,Score 8/10 meets the qualification bar (8+),Company size 350 -> 3/3 pts | Hospitality is outside our target industries (0/2 pts) | Source 'Referral' -> 3/3 pts | Last contact 5 days ago (2/2 pts),,,"Hi Isabella,
+
+Someone in your network suggested I reach out. We help Hospitality companies like Luxury Hotels qualify inbound leads automatically, which tends to matter a lot for a 350-person team. Would you be open to a quick 15-minute chat next week?
+
+Best,
+Sam, LeadFlow"
+18,qualified,MEDIUM,8,Frank Liu,Healthcare Systems Ltd,1200,Healthcare,Sales call,2024-01-12,Score 8/10 meets the qualification bar (8+),Company size 1200 -> 3/3 pts | Healthcare is an adjacent industry (1/2 pts) | Source 'Sales call' -> 2/3 pts | Last contact 9 days ago (2/2 pts),,,"Hi Frank,
+
+Thanks for your interest in LeadFlow. For a 1200-person team like Healthcare Systems Ltd, the quickest win is usually automating lead qualification so reps only chase ready buyers. Would Tuesday or Thursday work for a 20-minute walkthrough tailored to Healthcare?
+
+Best,
+Sam, LeadFlow"
+19,qualified,MEDIUM,8,Sophia Moretti,Wine Distribution,95,Retail,Inbound demo request,2024-01-11,Score 8/10 meets the qualification bar (8+),Company size 95 -> 2/3 pts | Retail is an adjacent industry (1/2 pts) | Source 'Inbound demo request' -> 3/3 pts | Last contact 10 days ago (2/2 pts),,,"Hi Sophia,
+
+Thanks for your interest in LeadFlow. For a 95-person team like Wine Distribution, the quickest win is usually automating lead qualification so reps only chase ready buyers. Would Tuesday or Thursday work for a 20-minute walkthrough tailored to Retail?
+
+Best,
+Sam, LeadFlow"
+20,qualified,MEDIUM,8,Quinn Matthews,Consulting Firm,180,Consulting,Webinar attendee,2024-01-11,Score 8/10 meets the qualification bar (8+),Company size 180 -> 3/3 pts | Consulting is an adjacent industry (1/2 pts) | Source 'Webinar attendee' -> 2/3 pts | Last contact 10 days ago (2/2 pts),,,"Hi Quinn,
+
+Thanks for engaging with our content. Many Consulting teams tell us manual lead triage eats hours every week. Curious - how does Consulting Firm decide today which leads your team follows up on first?
+
+Best,
+Sam, LeadFlow"
+21,qualified,MEDIUM,8,Lauren Blake,Medical Devices,450,Healthcare,Sales call,2024-01-09,Score 8/10 meets the qualification bar (8+),Company size 450 -> 3/3 pts | Healthcare is an adjacent industry (1/2 pts) | Source 'Sales call' -> 2/3 pts | Last contact 12 days ago (2/2 pts),,,"Hi Lauren,
+
+Thanks for your interest in LeadFlow. For a 450-person team like Medical Devices, the quickest win is usually automating lead qualification so reps only chase ready buyers. Would Tuesday or Thursday work for a 20-minute walkthrough tailored to Healthcare?
+
+Best,
+Sam, LeadFlow"
+22,qualified,MEDIUM,8,Steven Chen,Robotics Company,75,Manufacturing,Referral,2024-01-07,Score 8/10 meets the qualification bar (8+),Company size 75 -> 2/3 pts | Manufacturing is an adjacent industry (1/2 pts) | Source 'Referral' -> 3/3 pts | Last contact 14 days ago (2/2 pts),,,"Hi Steven,
+
+Someone in your network suggested I reach out. We help Manufacturing companies like Robotics Company qualify inbound leads automatically, which tends to matter a lot for a 75-person team. Would you be open to a quick 15-minute chat next week?
+
+Best,
+Sam, LeadFlow"
+23,qualified,MEDIUM,8,Oscar Rivera,Warehouse Automation,300,Logistics,Referral,2024-01-06,Score 8/10 meets the qualification bar (8+),Company size 300 -> 3/3 pts | Logistics is an adjacent industry (1/2 pts) | Source 'Referral' -> 3/3 pts | Last contact 15 days ago (1/2 pts),,,"Hi Oscar,
+
+Someone in your network suggested I reach out. We help Logistics companies like Warehouse Automation qualify inbound leads automatically, which tends to matter a lot for a 300-person team. Would you be open to a quick 15-minute chat next week?
+
+Best,
+Sam, LeadFlow"
+24,qualified,MEDIUM,8,Penny Walsh,Mental Health Platform,75,HealthTech,Inbound demo request,2024-01-05,Score 8/10 meets the qualification bar (8+),Company size 75 -> 2/3 pts | HealthTech is a core target industry (2/2 pts) | Source 'Inbound demo request' -> 3/3 pts | Last contact 16 days ago (1/2 pts),,,"Hi Penny,
+
+Thanks for your interest in LeadFlow. For a 75-person team like Mental Health Platform, the quickest win is usually automating lead qualification so reps only chase ready buyers. Would Tuesday or Thursday work for a 20-minute walkthrough tailored to HealthTech?
+
+Best,
+Sam, LeadFlow"
+25,qualified,MEDIUM,8,William Knight,Pharmaceutical Distribution,400,Healthcare,Referral,2024-01-04,Score 8/10 meets the qualification bar (8+),Company size 400 -> 3/3 pts | Healthcare is an adjacent industry (1/2 pts) | Source 'Referral' -> 3/3 pts | Last contact 17 days ago (1/2 pts),,,"Hi William,
+
+Someone in your network suggested I reach out. We help Healthcare companies like Pharmaceutical Distribution qualify inbound leads automatically, which tends to matter a lot for a 400-person team. Would you be open to a quick 15-minute chat next week?
+
+Best,
+Sam, LeadFlow"
+26,qualified,MEDIUM,8,Veronica Adams,Commercial Cleaning,180,Business Services,Inbound demo request,2023-12-30,Score 8/10 meets the qualification bar (8+),Company size 180 -> 3/3 pts | Business Services is an adjacent industry (1/2 pts) | Source 'Inbound demo request' -> 3/3 pts | Last contact 22 days ago (1/2 pts),,,"Hi Veronica,
+
+Thanks for your interest in LeadFlow. For a 180-person team like Commercial Cleaning, the quickest win is usually automating lead qualification so reps only chase ready buyers. Would Tuesday or Thursday work for a 20-minute walkthrough tailored to Business Services?
+
+Best,
+Sam, LeadFlow"
+27,qualified,MEDIUM,8,Yolanda Martinez,Customer Support Platform,110,SaaS,Webinar attendee,2023-12-27,Score 8/10 meets the qualification bar (8+),Company size 110 -> 3/3 pts | SaaS is a core target industry (2/2 pts) | Source 'Webinar attendee' -> 2/3 pts | Last contact 25 days ago (1/2 pts),,,"Hi Yolanda,
+
+Thanks for engaging with our content. Many SaaS teams tell us manual lead triage eats hours every week. Curious - how does Customer Support Platform decide today which leads your team follows up on first?
+
+Best,
+Sam, LeadFlow"
+28,qualified,MEDIUM,8,Audrey Powell,Dental Practice Management,150,Healthcare,Referral,2023-12-25,Score 8/10 meets the qualification bar (8+),Company size 150 -> 3/3 pts | Healthcare is an adjacent industry (1/2 pts) | Source 'Referral' -> 3/3 pts | Last contact 27 days ago (1/2 pts),,,"Hi Audrey,
+
+Someone in your network suggested I reach out. We help Healthcare companies like Dental Practice Management qualify inbound leads automatically, which tends to matter a lot for a 150-person team. Would you be open to a quick 15-minute chat next week?
+
+Best,
+Sam, LeadFlow"
+29,qualified,MEDIUM,8,Xavier Lopez,Data Analytics Firm,110,Analytics,Webinar attendee,2023-12-22,Score 8/10 meets the qualification bar (8+),Company size 110 -> 3/3 pts | Analytics is a core target industry (2/2 pts) | Source 'Webinar attendee' -> 2/3 pts | Last contact 30 days ago (1/2 pts),,,"Hi Xavier,
+
+Thanks for engaging with our content. Many Analytics teams tell us manual lead triage eats hours every week. Curious - how does Data Analytics Firm decide today which leads your team follows up on first?
+
+Best,
+Sam, LeadFlow"
+30,qualified,MEDIUM,8,Gemma Hart,Public Relations Firm,75,Marketing,Referral,2023-12-19,Score 8/10 meets the qualification bar (8+),Company size 75 -> 2/3 pts | Marketing is a core target industry (2/2 pts) | Source 'Referral' -> 3/3 pts | Last contact 33 days ago (1/2 pts),,,"Hi Gemma,
+
+Someone in your network suggested I reach out. We help Marketing companies like Public Relations Firm qualify inbound leads automatically, which tends to matter a lot for a 75-person team. Would you be open to a quick 15-minute chat next week?
+
+Best,
+Sam, LeadFlow"
+31,qualified,MEDIUM,8,Harper Knight,Retail Inventory,140,Retail,Inbound demo request,2023-12-18,Score 8/10 meets the qualification bar (8+),Company size 140 -> 3/3 pts | Retail is an adjacent industry (1/2 pts) | Source 'Inbound demo request' -> 3/3 pts | Last contact 34 days ago (1/2 pts),,,"Hi Harper,
+
+Thanks for your interest in LeadFlow. For a 140-person team like Retail Inventory, the quickest win is usually automating lead qualification so reps only chase ready buyers. Would Tuesday or Thursday work for a 20-minute walkthrough tailored to Retail?
+
+Best,
+Sam, LeadFlow"
+32,qualified,MEDIUM,8,Kevin Grant,Knowledge Management,125,Software,Webinar attendee,2023-12-15,Score 8/10 meets the qualification bar (8+),Company size 125 -> 3/3 pts | Software is a core target industry (2/2 pts) | Source 'Webinar attendee' -> 2/3 pts | Last contact 37 days ago (1/2 pts),,,"Hi Kevin,
+
+Thanks for engaging with our content. Many Software teams tell us manual lead triage eats hours every week. Curious - how does Knowledge Management decide today which leads your team follows up on first?
+
+Best,
+Sam, LeadFlow"
+33,qualified,MEDIUM,8,Marcus Stewart,Cyber Insurance,220,Insurance,Referral,2023-12-13,Score 8/10 meets the qualification bar (8+),Company size 220 -> 3/3 pts | Insurance is an adjacent industry (1/2 pts) | Source 'Referral' -> 3/3 pts | Last contact 39 days ago (1/2 pts),,,"Hi Marcus,
+
+Someone in your network suggested I reach out. We help Insurance companies like Cyber Insurance qualify inbound leads automatically, which tends to matter a lot for a 220-person team. Would you be open to a quick 15-minute chat next week?
+
+Best,
+Sam, LeadFlow"
+34,qualified,MEDIUM,8,Priya Patel,Network Security,180,Cybersecurity,Sales call,2023-12-10,Score 8/10 meets the qualification bar (8+),Company size 180 -> 3/3 pts | Cybersecurity is a core target industry (2/2 pts) | Source 'Sales call' -> 2/3 pts | Last contact 42 days ago (1/2 pts),,,"Hi Priya,
+
+Thanks for your interest in LeadFlow. For a 180-person team like Network Security, the quickest win is usually automating lead qualification so reps only chase ready buyers. Would Tuesday or Thursday work for a 20-minute walkthrough tailored to Cybersecurity?
+
+Best,
+Sam, LeadFlow"
+35,qualified,MEDIUM,8,Sophie Lawrence,Laboratory Information,170,Healthcare,Referral,2023-12-07,Score 8/10 meets the qualification bar (8+),Company size 170 -> 3/3 pts | Healthcare is an adjacent industry (1/2 pts) | Source 'Referral' -> 3/3 pts | Last contact 45 days ago (1/2 pts),,,"Hi Sophie,
+
+Someone in your network suggested I reach out. We help Healthcare companies like Laboratory Information qualify inbound leads automatically, which tends to matter a lot for a 170-person team. Would you be open to a quick 15-minute chat next week?
+
+Best,
+Sam, LeadFlow"
+,review,HUMAN_REVIEW,7,David Moore,StartupXYZ,3,SaaS,Referral,2024-01-18,Score 7/10 is borderline - too close to call,Company size 3 -> 0/3 pts | SaaS is a core target industry (2/2 pts) | Source 'Referral' -> 3/3 pts | Last contact 3 days ago (2/2 pts),,not_available: AI opinion unavailable - review manually,
+,review,HUMAN_REVIEW,7,Emma Thompson,RetailWorks Solutions,200,Retail,Inbound demo request,2023-11-10,Score 7/10 is borderline - too close to call,Company size 200 -> 3/3 pts | Retail is an adjacent industry (1/2 pts) | Source 'Inbound demo request' -> 3/3 pts | Last contact 72 days ago (0/2 pts),,not_available: AI opinion unavailable - review manually,
+,review,HUMAN_REVIEW,7,Henry Park,EdTech Innovations,75,EdTech,Content download,2024-01-14,Score 7/10 is borderline - too close to call,Company size 75 -> 2/3 pts | EdTech is a core target industry (2/2 pts) | Source 'Content download' -> 1/3 pts | Last contact 7 days ago (2/2 pts),,not_available: AI opinion unavailable - review manually,
+,review,HUMAN_REVIEW,7,Karen Miller,InsurancePro,600,Insurance,Sales call,2023-12-15,Score 7/10 is borderline - too close to call,Company size 600 -> 3/3 pts | Insurance is an adjacent industry (1/2 pts) | Source 'Sales call' -> 2/3 pts | Last contact 37 days ago (1/2 pts),,not_available: AI opinion unavailable - review manually,
+,review,HUMAN_REVIEW,7,Tina Patel,Energy Solutions,900,Energy,Inbound demo request,2023-10-18,Score 7/10 is borderline - too close to call,Company size 900 -> 3/3 pts | Energy is an adjacent industry (1/2 pts) | Source 'Inbound demo request' -> 3/3 pts | Last contact 95 days ago - stale (0/2 pts),,not_available: AI opinion unavailable - review manually,
+,review,HUMAN_REVIEW,7,Victor Moore,Real Estate Platform,250,Real Estate,Sales call,2024-01-06,Score 7/10 is borderline - too close to call,Company size 250 -> 3/3 pts | Real Estate is an adjacent industry (1/2 pts) | Source 'Sales call' -> 2/3 pts | Last contact 15 days ago (1/2 pts),,not_available: AI opinion unavailable - review manually,
+,review,HUMAN_REVIEW,7,Zara Hassan,Education Institution,600,Education,Inbound demo request,2023-12-05,Score 7/10 is borderline - too close to call,Company size 600 -> 3/3 pts | Education is an adjacent industry (1/2 pts) | Source 'Inbound demo request' -> 3/3 pts | Last contact 47 days ago (0/2 pts),,not_available: AI opinion unavailable - review manually,
+,review,HUMAN_REVIEW,7,Gabriella Torres,Beauty & Cosmetics,120,Consumer,Webinar attendee,2024-01-14,Score 7/10 is borderline - too close to call,Company size 120 -> 3/3 pts | Consumer is outside our target industries (0/2 pts) | Source 'Webinar attendee' -> 2/3 pts | Last contact 7 days ago (2/2 pts),,not_available: AI opinion unavailable - review manually,
+,review,HUMAN_REVIEW,7,Katherine Lee,Artificial Intelligence Lab,65,AI/ML,LinkedIn outreach,2024-01-13,Score 7/10 is borderline - too close to call,Company size 65 -> 2/3 pts | AI/ML is a core target industry (2/2 pts) | Source 'LinkedIn outreach' -> 1/3 pts | Last contact 8 days ago (2/2 pts),,not_available: AI opinion unavailable - review manually,
+,review,HUMAN_REVIEW,7,Patricia Brown,Biotechnology Research,250,Biotech,LinkedIn outreach,2024-01-09,Score 7/10 is borderline - too close to call,Company size 250 -> 3/3 pts | Biotech is an adjacent industry (1/2 pts) | Source 'LinkedIn outreach' -> 1/3 pts | Last contact 12 days ago (2/2 pts),,not_available: AI opinion unavailable - review manually,
+,review,HUMAN_REVIEW,7,Rebecca Green,Waste Management,1100,Environmental,Webinar attendee,2024-01-08,Score 7/10 is borderline - too close to call,Company size 1100 -> 3/3 pts | Environmental is outside our target industries (0/2 pts) | Source 'Webinar attendee' -> 2/3 pts | Last contact 13 days ago (2/2 pts),,not_available: AI opinion unavailable - review manually,
+,review,HUMAN_REVIEW,7,Ursula Hoffmann,Insurance Tech,130,InsurTech,LinkedIn outreach,2024-01-05,Score 7/10 is borderline - too close to call,Company size 130 -> 3/3 pts | InsurTech is a core target industry (2/2 pts) | Source 'LinkedIn outreach' -> 1/3 pts | Last contact 16 days ago (1/2 pts),,not_available: AI opinion unavailable - review manually,
+,review,HUMAN_REVIEW,7,Victoria Summers,Transportation Logistics,550,Logistics,Sales call,2023-12-28,Score 7/10 is borderline - too close to call,Company size 550 -> 3/3 pts | Logistics is an adjacent industry (1/2 pts) | Source 'Sales call' -> 2/3 pts | Last contact 24 days ago (1/2 pts),,not_available: AI opinion unavailable - review manually,
+,review,HUMAN_REVIEW,7,Zachary Pierce,Office Furniture,175,Retail,Webinar attendee,2023-12-18,Score 7/10 is borderline - too close to call,Company size 175 -> 3/3 pts | Retail is an adjacent industry (1/2 pts) | Source 'Webinar attendee' -> 2/3 pts | Last contact 34 days ago (1/2 pts),,not_available: AI opinion unavailable - review manually,
+,review,HUMAN_REVIEW,7,Evelyn Richardson,Human Resources Tech,70,HR Tech,LinkedIn outreach,2024-01-16,Score 7/10 is borderline - too close to call,Company size 70 -> 2/3 pts | HR Tech is a core target industry (2/2 pts) | Source 'LinkedIn outreach' -> 1/3 pts | Last contact 5 days ago (2/2 pts),,not_available: AI opinion unavailable - review manually,
+,review,HUMAN_REVIEW,7,Harrison Scott,Commercial Real Estate,900,Real Estate,Content download,2024-01-13,Score 7/10 is borderline - too close to call,Company size 900 -> 3/3 pts | Real Estate is an adjacent industry (1/2 pts) | Source 'Content download' -> 1/3 pts | Last contact 8 days ago (2/2 pts),,not_available: AI opinion unavailable - review manually,
+,review,HUMAN_REVIEW,7,Natalie Stone,Fashion E-commerce,110,Retail,Content download,2024-01-07,Score 7/10 is borderline - too close to call,Company size 110 -> 3/3 pts | Retail is an adjacent industry (1/2 pts) | Source 'Content download' -> 1/3 pts | Last contact 14 days ago (2/2 pts),,not_available: AI opinion unavailable - review manually,
+,review,HUMAN_REVIEW,7,Quinton Price,Database Software,250,Software,LinkedIn outreach,2024-01-04,Score 7/10 is borderline - too close to call,Company size 250 -> 3/3 pts | Software is a core target industry (2/2 pts) | Source 'LinkedIn outreach' -> 1/3 pts | Last contact 17 days ago (1/2 pts),,not_available: AI opinion unavailable - review manually,
+,review,HUMAN_REVIEW,7,Silas Brown,Financial Advisory,140,Finance,Webinar attendee,2024-01-02,Score 7/10 is borderline - too close to call,Company size 140 -> 3/3 pts | Finance is an adjacent industry (1/2 pts) | Source 'Webinar attendee' -> 2/3 pts | Last contact 19 days ago (1/2 pts),,not_available: AI opinion unavailable - review manually,
+,review,HUMAN_REVIEW,7,Ulysses Morgan,Autonomous Vehicles,600,Automotive,Referral,2023-12-31,Score 7/10 is borderline - too close to call,Company size 600 -> 3/3 pts | Automotive is outside our target industries (0/2 pts) | Source 'Referral' -> 3/3 pts | Last contact 21 days ago (1/2 pts),,not_available: AI opinion unavailable - review manually,
+,review,HUMAN_REVIEW,7,Bryson Hart,Climate Analytics,70,Climate Tech,Inbound demo request,2023-12-24,Score 7/10 is borderline - too close to call,Company size 70 -> 2/3 pts | Climate Tech is an adjacent industry (1/2 pts) | Source 'Inbound demo request' -> 3/3 pts | Last contact 28 days ago (1/2 pts),,not_available: AI opinion unavailable - review manually,
+,review,HUMAN_REVIEW,7,Iris Monroe,Corporate Training,110,EdTech,LinkedIn outreach,2023-12-17,Score 7/10 is borderline - too close to call,Company size 110 -> 3/3 pts | EdTech is a core target industry (2/2 pts) | Source 'LinkedIn outreach' -> 1/3 pts | Last contact 35 days ago (1/2 pts),,not_available: AI opinion unavailable - review manually,
+,review,HUMAN_REVIEW,7,Natasha Volkov,Import Export Trading,350,Trade,Inbound demo request,2023-12-12,Score 7/10 is borderline - too close to call,Company size 350 -> 3/3 pts | Trade is outside our target industries (0/2 pts) | Source 'Inbound demo request' -> 3/3 pts | Last contact 40 days ago (1/2 pts),,not_available: AI opinion unavailable - review manually,
+,rejected,NONE,6,Grace Lee,Manufacturing Co,450,Manufacturing,Webinar attendee,2023-10-05,Score 6/10 is below the review bar (7),Company size 450 -> 3/3 pts | Manufacturing is an adjacent industry (1/2 pts) | Source 'Webinar attendee' -> 2/3 pts | Last contact 108 days ago - stale (0/2 pts),,,
+,rejected,NONE,6,Wendy Zhang,Fashion Brand,400,Retail,Content download,2024-01-05,Score 6/10 is below the review bar (7),Company size 400 -> 3/3 pts | Retail is an adjacent industry (1/2 pts) | Source 'Content download' -> 1/3 pts | Last contact 16 days ago (1/2 pts),,,
+,rejected,NONE,6,Yuki Tanaka,Travel Technology,55,Travel,Referral,2024-01-04,Score 6/10 is below the review bar (7),Company size 55 -> 2/3 pts | Travel is outside our target industries (0/2 pts) | Source 'Referral' -> 3/3 pts | Last contact 17 days ago (1/2 pts),,,
+,rejected,NONE,6,Aaron Benjamin,Supply Chain Co,320,Supply Chain,LinkedIn outreach,2024-01-02,Score 6/10 is below the review bar (7),Company size 320 -> 3/3 pts | Supply Chain is an adjacent industry (1/2 pts) | Source 'LinkedIn outreach' -> 1/3 pts | Last contact 19 days ago (1/2 pts),,,
+,rejected,NONE,6,Cassandra Jones,Media & Entertainment,150,Media,Content download,2024-01-01,Score 6/10 is below the review bar (7),Company size 150 -> 3/3 pts | Media is an adjacent industry (1/2 pts) | Source 'Content download' -> 1/3 pts | Last contact 20 days ago (1/2 pts),,,
+,rejected,NONE,6,Ethan Smith,Mobile Development,40,Software,LinkedIn outreach,2024-01-17,Score 6/10 is below the review bar (7),Company size 40 -> 1/3 pts | Software is a core target industry (2/2 pts) | Source 'LinkedIn outreach' -> 1/3 pts | Last contact 4 days ago (2/2 pts),,,
+,rejected,NONE,6,Liam O'Connor,Venture Capital Fund,40,Finance,Sales call,2024-01-10,Score 6/10 is below the review bar (7),Company size 40 -> 1/3 pts | Finance is an adjacent industry (1/2 pts) | Source 'Sales call' -> 2/3 pts | Last contact 11 days ago (2/2 pts),,,
+,rejected,NONE,6,Mona Patel,Blockchain Startup,22,Cryptocurrency,Referral,2024-01-15,Score 6/10 is below the review bar (7),Company size 22 -> 1/3 pts | Cryptocurrency is outside our target industries (0/2 pts) | Source 'Referral' -> 3/3 pts | Last contact 6 days ago (2/2 pts),,,
+,rejected,NONE,6,Kennedy Owens,Environmental Monitoring,55,Climate Tech,LinkedIn outreach,2024-01-10,Score 6/10 is below the review bar (7),Company size 55 -> 2/3 pts | Climate Tech is an adjacent industry (1/2 pts) | Source 'LinkedIn outreach' -> 1/3 pts | Last contact 11 days ago (2/2 pts),,,
+,rejected,NONE,6,Marcus Hunt,Venture Studio,35,Finance,Webinar attendee,2024-01-08,Score 6/10 is below the review bar (7),Company size 35 -> 1/3 pts | Finance is an adjacent industry (1/2 pts) | Source 'Webinar attendee' -> 2/3 pts | Last contact 13 days ago (2/2 pts),,,
+,rejected,NONE,6,Ruby Chen,Sustainable Fashion,85,Retail,Sales call,2024-01-03,Score 6/10 is below the review bar (7),Company size 85 -> 2/3 pts | Retail is an adjacent industry (1/2 pts) | Source 'Sales call' -> 2/3 pts | Last contact 18 days ago (1/2 pts),,,
+,rejected,NONE,6,Tara Gonzalez,Nutrition Tech,50,HealthTech,Content download,2024-01-01,Score 6/10 is below the review bar (7),Company size 50 -> 2/3 pts | HealthTech is a core target industry (2/2 pts) | Source 'Content download' -> 1/3 pts | Last contact 20 days ago (1/2 pts),,,
+,rejected,NONE,6,Cecilia Santos,Freight Forwarding,400,Logistics,LinkedIn outreach,2023-12-23,Score 6/10 is below the review bar (7),Company size 400 -> 3/3 pts | Logistics is an adjacent industry (1/2 pts) | Source 'LinkedIn outreach' -> 1/3 pts | Last contact 29 days ago (1/2 pts),,,
+,rejected,NONE,6,Ezra Fox,Veterinary Practice,65,Healthcare,Webinar attendee,2023-12-21,Score 6/10 is below the review bar (7),Company size 65 -> 2/3 pts | Healthcare is an adjacent industry (1/2 pts) | Source 'Webinar attendee' -> 2/3 pts | Last contact 31 days ago (1/2 pts),,,
+,rejected,NONE,6,Julian Parks,Hotel Management,250,Hospitality,Sales call,2023-12-16,Score 6/10 is below the review bar (7),Company size 250 -> 3/3 pts | Hospitality is outside our target industries (0/2 pts) | Source 'Sales call' -> 2/3 pts | Last contact 36 days ago (1/2 pts),,,
+,rejected,NONE,6,Raymond Grant,Logistics Tracking,300,Logistics,Content download,2023-12-08,Score 6/10 is below the review bar (7),Company size 300 -> 3/3 pts | Logistics is an adjacent industry (1/2 pts) | Source 'Content download' -> 1/3 pts | Last contact 44 days ago (1/2 pts),,,
+,rejected,NONE,6,Tobias Wright,Vehicle Tracking,220,Automotive,Inbound demo request,2023-12-06,Score 6/10 is below the review bar (7),Company size 220 -> 3/3 pts | Automotive is outside our target industries (0/2 pts) | Source 'Inbound demo request' -> 3/3 pts | Last contact 46 days ago (0/2 pts),,,
+,rejected,NONE,5,Bob Rodriguez,TechVentures Inc,8,SaaS,LinkedIn outreach,2024-01-20,Score 5/10 is below the review bar (7),Company size 8 -> 0/3 pts | SaaS is a core target industry (2/2 pts) | Source 'LinkedIn outreach' -> 1/3 pts | Last contact 1 days ago (2/2 pts),,,
+,rejected,NONE,5,Iris Patel,Logistics Global,800,Logistics,LinkedIn outreach,2023-09-20,Score 5/10 is below the review bar (7),Company size 800 -> 3/3 pts | Logistics is an adjacent industry (1/2 pts) | Source 'LinkedIn outreach' -> 1/3 pts | Last contact 123 days ago - stale (0/2 pts),,,
+,rejected,NONE,5,Pamela White,Pharma Research Inc,2200,Pharmaceuticals,Sales call,2023-11-25,Score 5/10 is below the review bar (7),Company size 2200 -> 2/3 pts | Pharmaceuticals is an adjacent industry (1/2 pts) | Source 'Sales call' -> 2/3 pts | Last contact 57 days ago (0/2 pts),,,
+,rejected,NONE,5,Rachel Kim,Government Agency,800,Government,Content download,2023-12-10,Score 5/10 is below the review bar (7),Company size 800 -> 3/3 pts | Government is outside our target industries (0/2 pts) | Source 'Content download' -> 1/3 pts | Last contact 42 days ago (1/2 pts),,,
+,rejected,NONE,5,Bella Cross,Legal Services Firm,90,Legal,Sales call,2023-11-30,Score 5/10 is below the review bar (7),Company size 90 -> 2/3 pts | Legal is an adjacent industry (1/2 pts) | Source 'Sales call' -> 2/3 pts | Last contact 52 days ago (0/2 pts),,,
+,rejected,NONE,5,Fiona Murphy,Telecommunications,2500,Telecom,Sales call,2023-11-15,Score 5/10 is below the review bar (7),Company size 2500 -> 2/3 pts | Telecom is an adjacent industry (1/2 pts) | Source 'Sales call' -> 2/3 pts | Last contact 67 days ago (0/2 pts),,,
+,rejected,NONE,5,Quincy Adams,Streaming Service,3000,Media,Sales call,2023-10-30,Score 5/10 is below the review bar (7),Company size 3000 -> 2/3 pts | Media is an adjacent industry (1/2 pts) | Source 'Sales call' -> 2/3 pts | Last contact 83 days ago (0/2 pts),,,
+,rejected,NONE,5,Theo Papadopoulos,Construction Tech,150,Construction,Content download,2024-01-06,Score 5/10 is below the review bar (7),Company size 150 -> 3/3 pts | Construction is outside our target industries (0/2 pts) | Source 'Content download' -> 1/3 pts | Last contact 15 days ago (1/2 pts),,,
+,rejected,NONE,5,Xander Brooks,Virtual Reality Studios,45,Entertainment,Inbound demo request,2024-01-03,Score 5/10 is below the review bar (7),Company size 45 -> 1/3 pts | Entertainment is outside our target industries (0/2 pts) | Source 'Inbound demo request' -> 3/3 pts | Last contact 18 days ago (1/2 pts),,,
+,rejected,NONE,5,Walter Buchanan,Construction Management,320,Construction,LinkedIn outreach,2023-12-29,Score 5/10 is below the review bar (7),Company size 320 -> 3/3 pts | Construction is outside our target industries (0/2 pts) | Source 'LinkedIn outreach' -> 1/3 pts | Last contact 23 days ago (1/2 pts),,,
+,rejected,NONE,5,Ximena Flores,Gaming Studio,95,Entertainment,Sales call,2023-12-28,Score 5/10 is below the review bar (7),Company size 95 -> 2/3 pts | Entertainment is outside our target industries (0/2 pts) | Source 'Sales call' -> 2/3 pts | Last contact 24 days ago (1/2 pts),,,
+,rejected,NONE,4,Carol Singh,National Bank Corp,5000,Finance,Content download,2023-12-01,Score 4/10 is below the review bar (7),Company size 5000 -> 2/3 pts | Finance is an adjacent industry (1/2 pts) | Source 'Content download' -> 1/3 pts | Last contact 51 days ago (0/2 pts),,,
+,rejected,NONE,4,Maya Desai,Agricultural Tech,45,Agriculture,Content download,2024-01-16,Score 4/10 is below the review bar (7),Company size 45 -> 1/3 pts | Agriculture is outside our target industries (0/2 pts) | Source 'Content download' -> 1/3 pts | Last contact 5 days ago (2/2 pts),,,
+,rejected,NONE,4,Uma Singh,Event Planning Co,35,Events,LinkedIn outreach,2024-01-08,Score 4/10 is below the review bar (7),Company size 35 -> 1/3 pts | Events is outside our target industries (0/2 pts) | Source 'LinkedIn outreach' -> 1/3 pts | Last contact 13 days ago (2/2 pts),,,
+,rejected,NONE,4,Nicholas Anderson,Sports Management,85,Sports,Content download,2023-12-20,Score 4/10 is below the review bar (7),Company size 85 -> 2/3 pts | Sports is outside our target industries (0/2 pts) | Source 'Content download' -> 1/3 pts | Last contact 32 days ago (1/2 pts),,,
+,rejected,NONE,4,Zachary Coleman,Landscaping Services,42,Services,Content download,2023-12-26,Score 4/10 is below the review bar (7),Company size 42 -> 1/3 pts | Services is an adjacent industry (1/2 pts) | Source 'Content download' -> 1/3 pts | Last contact 26 days ago (1/2 pts),,,
+,rejected,NONE,4,Daisy Newton,Wedding Planning Tech,38,Events,Sales call,2023-12-22,Score 4/10 is below the review bar (7),Company size 38 -> 1/3 pts | Events is outside our target industries (0/2 pts) | Source 'Sales call' -> 2/3 pts | Last contact 30 days ago (1/2 pts),,,
+,rejected,NONE,4,Finn O'Brien,Craft Beverage,85,Consumer,Content download,2023-12-20,Score 4/10 is below the review bar (7),Company size 85 -> 2/3 pts | Consumer is outside our target industries (0/2 pts) | Source 'Content download' -> 1/3 pts | Last contact 32 days ago (1/2 pts),,,
+,rejected,NONE,4,Louisa Blake,Interior Design Services,28,Services,Content download,2023-12-14,Score 4/10 is below the review bar (7),Company size 28 -> 1/3 pts | Services is an adjacent industry (1/2 pts) | Source 'Content download' -> 1/3 pts | Last contact 38 days ago (1/2 pts),,,
+,rejected,NONE,4,Oliver Thorne,Museum Management,65,Cultural,LinkedIn outreach,2023-12-11,Score 4/10 is below the review bar (7),Company size 65 -> 2/3 pts | Cultural is outside our target industries (0/2 pts) | Source 'LinkedIn outreach' -> 1/3 pts | Last contact 41 days ago (1/2 pts),,,
+,rejected,NONE,4,Quinn Murphy,Volunteer Management,40,NonProfit,Webinar attendee,2023-12-09,Score 4/10 is below the review bar (7),Company size 40 -> 1/3 pts | NonProfit is outside our target industries (0/2 pts) | Source 'Webinar attendee' -> 2/3 pts | Last contact 43 days ago (1/2 pts),,,
+,rejected,NONE,3,Hassan Khalil,Oil & Gas Corp,8000,Energy,Content download,2023-09-01,Score 3/10 is below the review bar (7),Company size 8000 -> 1/3 pts | Energy is an adjacent industry (1/2 pts) | Source 'Content download' -> 1/3 pts | Last contact 142 days ago - stale (0/2 pts),,,
+,rejected,NONE,3,Yasmine Aziz,Pet Care Services,28,Consumer Services,LinkedIn outreach,2024-01-02,Score 3/10 is below the review bar (7),Company size 28 -> 1/3 pts | Consumer Services is outside our target industries (0/2 pts) | Source 'LinkedIn outreach' -> 1/3 pts | Last contact 19 days ago (1/2 pts),,,
+,rejected,NONE,3,Uriel Reyes,Waste Reduction,95,Environmental,LinkedIn outreach,2023-12-05,Score 3/10 is below the review bar (7),Company size 95 -> 2/3 pts | Environmental is outside our target industries (0/2 pts) | Source 'LinkedIn outreach' -> 1/3 pts | Last contact 47 days ago (0/2 pts),,,
+,rejected,NONE,2,Olivia Garcia,Local Restaurant Group,12,Hospitality,LinkedIn outreach,2023-08-30,Score 2/10 is below the review bar (7),Company size 12 -> 1/3 pts | Hospitality is outside our target industries (0/2 pts) | Source 'LinkedIn outreach' -> 1/3 pts | Last contact 144 days ago - stale (0/2 pts),,,
