@@ -13,24 +13,13 @@ load_leads ─> score_leads ───────┤                            
 | `dags/lead_qualification_dag.py` | **The only Airflow file.** Defines the 5 tasks and their order |
 | `dags/lead_qualifier/settings.py` | Rubric points, thresholds and LLM settings. **Edit this to tune.** |
 | `dags/lead_qualifier/data_loader.py` → `rubric.py` → `ai_steps.py` → `report.py` | One file per step. Plain Python, no Airflow imports |
-| `dags/lead_qualifier/llm_client.py` | Batched calls to any OpenAI-compatible API, with retries |
+| `dags/lead_qualifier/llm_client.py` | Batched calls to the NVIDIA API, with retries |
 | `run_local.py` | Runs the same pipeline without Airflow (the CLI tool) |
 | `data/` · `output/` | Input CSVs · generated reports (sample runs are included) |
 
 ## How to run
 
-**1. Without Airflow (quickest, needs only Python 3.9+):**
-```bash
-export LLM_API_KEY=your_groq_key        # optional: without it, template messages are used
-python run_local.py                                   # 100 leads
-python run_local.py --input leads_testing.csv         # messy edge cases
-python run_local.py --input leads_training.csv --limit 5   # test prompts on 5 leads
-```
-**2. In Airflow with Docker:** `cp .env.example .env`, add your key, run `docker compose up`, then open http://localhost:8080. Find the DAG **lead_qualification**, click **Trigger** (you can change `input_file` there), and open the **Graph** view to watch each task. Click a task and choose **Logs** to see what it did.
-
-**3. In Airflow without Docker:** `pip install -r requirements.txt` (use the constraints command in that file), then `export AIRFLOW_HOME=$PWD/airflow_home AIRFLOW__CORE__DAGS_FOLDER=$PWD/dags AIRFLOW__CORE__LOAD_EXAMPLES=False` and `airflow standalone`.
-
-The default LLM is Groq's free tier (`llama-3.1-8b-instant`). For OpenAI or Gemini, see `.env.example`.
+**See [HOW_TO_RUN.md](HOW_TO_RUN.md).** It covers the NVIDIA API key, running with plain Python, and running in Airflow (with or without Docker). The LLM is the NVIDIA API catalog ([build.nvidia.com](https://build.nvidia.com), free key), and the default model is `nvidia/nemotron-3.5-lightning-30b-a3b`.
 
 ## Qualification rubric
 

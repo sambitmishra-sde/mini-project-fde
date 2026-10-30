@@ -94,14 +94,16 @@ HIGH_PRIORITY_MIN_SCORE = 9    # qualified leads scoring 9-10 are HIGH priority
 MAX_MISSING_FIELDS = 1         # 2+ missing rubric fields -> human review
 
 # ---------------------------------------------------------------------------
-# LLM settings (any OpenAI-compatible API: Groq, OpenAI, Gemini, ...)
+# LLM settings - NVIDIA API catalog (https://build.nvidia.com, free API key)
 # ---------------------------------------------------------------------------
-# Values come from environment variables so API keys are never in the code.
-LLM_API_KEY = os.getenv("LLM_API_KEY", "")
-LLM_BASE_URL = os.getenv("LLM_BASE_URL", "https://api.groq.com/openai/v1")
-LLM_MODEL = os.getenv("LLM_MODEL", "llama-3.1-8b-instant")
+# The key comes from an environment variable so it is never stored in the code.
+LLM_API_KEY = os.getenv("NVIDIA_API_KEY", "")
+LLM_BASE_URL = os.getenv("NVIDIA_BASE_URL", "https://integrate.api.nvidia.com/v1")
+# Any chat model listed on build.nvidia.com works; copy its id from the model page.
+LLM_MODEL = os.getenv("NVIDIA_MODEL", "nvidia/nemotron-3.5-lightning-30b-a3b")
 
 LLM_BATCH_SIZE = 10                 # leads per API call (we never call once per lead)
 LLM_MAX_RETRIES = 4                 # attempts per batch before giving up
-LLM_TIMEOUT_SECONDS = 60
+LLM_MAX_TOKENS = 4096               # room for 10 short emails (+ "thinking" on reasoning models)
+LLM_TIMEOUT_SECONDS = 120           # hosted models can be slow on the free tier
 LLM_PAUSE_BETWEEN_BATCHES = 1.0     # seconds; helps stay under free-tier rate limits

@@ -1,20 +1,23 @@
 """
-A tiny client for any OpenAI-compatible chat API (Groq, OpenAI, Gemini, ...).
+A tiny client for the NVIDIA API catalog (https://build.nvidia.com).
 
-It uses only the Python standard library, so there is nothing extra to install.
+NVIDIA's hosted models speak the same "chat completions" format as OpenAI,
+so a plain HTTP POST is all we need - only the Python standard library is used,
+nothing extra to install.
 
 What it handles for you:
   * Rate limits (HTTP 429)   -> wait (respecting the Retry-After header) and retry
   * Server errors (5xx)      -> wait and retry with exponential backoff (2s, 4s, 8s ...)
   * Timeouts / network blips -> wait and retry
   * Bad JSON from the model  -> retry (models occasionally return invalid JSON)
-  * Other errors (401, 400)  -> stop immediately; retrying will not help
+  * Other errors (401, 404)  -> stop immediately; retrying will not help
 If all attempts fail it raises LLMError, and the caller decides what to do
 (our pipeline falls back to template messages instead of crashing).
 """
 
 import json
 import logging
+import re
 import time
 import urllib.error
 import urllib.request
@@ -33,25 +36,29 @@ def is_configured():
 
 
 def parse_json_reply(text):
-    """Models sometimes wrap JSON in ```json fences. Strip them and parse."""
-    text = text.strip()
-    if text.startswith("```"):
-        text = text.strip("`")
-        if text.lower().startswith("json"):
-            text = text[4:]
-    return json.loads(text)
+    """Pull the JSON object out of the model's reply.
+
+    Models sometimes add extras around the JSON: ```json fences, a sentence of
+    explanation, or <think>...</think> blocks (reasoning models). We drop the
+    thinking part and parse from the first '{' to the last '}'.
+    """
+    text = re.sub(r"<think>.*?</think>", "", text or "", flags=re.DOTALL)
+    start, end = text.find("{"), text.rfind("}")
+    if start == -1 or end < start:
+        raise json.JSONDecodeError("no JSON object found in reply", text, 0)
+    return json.loads(text[start:end + 1])
 
 
 def chat_json(system_prompt, user_prompt):
     """Send one chat request and return the model's reply parsed as a JSON object."""
     if not is_configured():
-        raise LLMError("LLM_API_KEY is not set")
+        raise LLMError("NVIDIA_API_KEY is not set")
 
     url = settings.LLM_BASE_URL.rstrip("/") + "/chat/completions"
     body = json.dumps({
         "model": settings.LLM_MODEL,
         "temperature": 0.4,
-        "response_format": {"type": "json_object"},
+        "max_tokens": settings.LLM_MAX_TOKENS,
         "messages": [
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": user_prompt},
@@ -59,8 +66,9 @@ def chat_json(system_prompt, user_prompt):
     }).encode("utf-8")
     headers = {
         "Content-Type": "application/json",
+        "Accept": "application/json",
         "Authorization": f"Bearer {settings.LLM_API_KEY}",
-        "User-Agent": "lead-qualifier/1.0",  # some providers block the default Python agent
+        "User-Agent": "lead-qualifier/1.0",
     }
 
     for attempt in range(1, settings.LLM_MAX_RETRIES + 1):
@@ -82,7 +90,10 @@ def chat_json(system_prompt, user_prompt):
                 problem = f"server error ({error.code})"
             else:
                 details = error.read().decode("utf-8", errors="replace")[:300]
-                raise LLMError(f"HTTP {error.code} - not retrying: {details}") from error
+                hints = {401: "check NVIDIA_API_KEY", 403: "check NVIDIA_API_KEY",
+                         404: f"model '{settings.LLM_MODEL}' not found - check NVIDIA_MODEL"}
+                hint = hints.get(error.code, "not retrying")
+                raise LLMError(f"HTTP {error.code} ({hint}): {details}") from error
 
         except (urllib.error.URLError, TimeoutError) as error:
             problem = f"network problem ({error})"

@@ -116,7 +116,7 @@ def write_outreach_messages(scored_leads):
     qualified = [lead for lead in scored_leads if lead["decision"] == "qualified"]
     log.info("Writing outreach for %d qualified leads", len(qualified))
     if not is_configured():
-        log.warning("LLM_API_KEY not set - using template messages for all leads")
+        log.warning("NVIDIA_API_KEY not set - using template messages for all leads")
 
     messages = {}
     for batch_number, batch in enumerate(in_batches(qualified, settings.LLM_BATCH_SIZE), start=1):

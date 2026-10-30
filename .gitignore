@@ -2,6 +2,6 @@
 __pycache__/
 *.pyc
 .venv/
-# Airflow files created when running `airflow standalone` locally
+# Airflow files created when running `airflow standalone` locally (see HOW_TO_RUN.md)
 airflow_home/
 logs/
