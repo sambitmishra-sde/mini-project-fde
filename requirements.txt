@@ -1,20 +1,15 @@
-# Dependencies for running the lead qualification DAG in Airflow on your own machine.
+# Python packages needed to run the lead qualification DAG in Airflow on your machine.
+# Supported Python versions: 3.10 - 3.14 (Airflow 3.3.2 requirement).
 #
-#   pip install -r requirements.txt
+# Install it with the command from HOW_TO_RUN.md (Option B2). That command adds Airflow's
+# official constraints file for YOUR Python version automatically:
 #
-# Notes:
-# * The app's own code (dags/lead_qualifier/, run_local.py) uses ONLY the Python
-#   standard library. The NVIDIA API is called with built-in urllib, so there is
-#   no SDK to install. Running `python run_local.py` needs nothing from this file.
-# * Airflow is the only dependency. It must be installed with its official
-#   "constraints" file, which pins every sub-dependency to versions that are tested
-#   together. Without it, pip may pick incompatible versions and Airflow breaks.
-# * The constraints file depends on your Python version. The line below is for
-#   Python 3.11. Change "3.11" to match `python --version`.
-#   Airflow 3.3.2 supports Python 3.10 - 3.13.
-# * The Docker option in HOW_TO_RUN.md does not need this file: the
-#   apache/airflow image already includes Airflow.
-
--c https://raw.githubusercontent.com/apache/airflow/constraints-3.3.2/constraints-3.11.txt
+#   PY=$(python -c 'import sys; print(f"{sys.version_info[0]}.{sys.version_info[1]}")')
+#   pip install -r requirements.txt --constraint \
+#     "https://raw.githubusercontent.com/apache/airflow/constraints-3.3.2/constraints-${PY}.txt"
+#
+# Why only one package? The app's own code (dags/lead_qualifier/, run_local.py) uses only
+# the Python standard library. Even the NVIDIA API is called with built-in urllib.
+# `python run_local.py` and the Docker option need nothing from this file.
 
 apache-airflow==3.3.2
