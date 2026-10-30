@@ -38,7 +38,7 @@ export NVIDIA_MODEL="meta/llama-3.3-70b-instruct"
 
 ## Option A: Run with plain Python (no Airflow)
 
-Requires **Python 3.9 or newer**. There's nothing to install with `pip`, because the app uses only the Python standard library.
+Requires **Python 3.9 or newer**. You can skip `requirements.txt` for this option. The app uses only the Python standard library, and that file only installs Airflow (needed for Option B2).
 
 Run these commands from the project folder (`mini-project-fde/`):
 
@@ -101,10 +101,12 @@ Wait about a minute until the log shows Airflow is ready, then continue with **B
 ### B2. Without Docker (macOS / Linux / WSL)
 
 ```bash
+# 1. Create an isolated Python environment (Python 3.10 - 3.13)
 python -m venv .venv && source .venv/bin/activate
-pip install "apache-airflow==3.3.2" --constraint \
-  "https://raw.githubusercontent.com/apache/airflow/constraints-3.3.2/constraints-3.11.txt"
-#  (in the URL above, change 3.11 to your Python version)
+
+# 2. Install the dependencies (Airflow, pinned with its official constraints file)
+#    If your Python is not 3.11, first edit the "-c ..." line in requirements.txt
+pip install -r requirements.txt
 
 export AIRFLOW_HOME="$PWD/airflow_home"
 export AIRFLOW__CORE__DAGS_FOLDER="$PWD/dags"
