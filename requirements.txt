@@ -5,7 +5,8 @@
 # official constraints file for YOUR Python version automatically:
 #
 #   PY=$(python -c 'import sys; print(f"{sys.version_info[0]}.{sys.version_info[1]}")')
-#   pip install -r requirements.txt --constraint \
+#   python -m pip install --upgrade pip
+#   python -m pip install -r requirements.txt --constraint \
 #     "https://raw.githubusercontent.com/apache/airflow/constraints-3.3.2/constraints-${PY}.txt"
 #
 # Why only one package? The app's own code (dags/lead_qualifier/, run_local.py) uses only

@@ -104,19 +104,25 @@ Airflow does not run natively on Windows. Windows users should use WSL or Option
 
 ```bash
 # 1. Create an isolated Python environment (needs Python 3.10 - 3.14)
-python -m venv .venv && source .venv/bin/activate
+python3 -m venv .venv && source .venv/bin/activate
+hash -r                       # make the shell forget any cached global `pip`
+which python                  # must end in .../mini-project-fde/.venv/bin/python
 python --version
 
-# 2. Install requirements.txt, together with Airflow's official constraints file
+# 2. Upgrade pip INSIDE the venv (old pip crashes on Python 3.12+)
+#    Always use `python -m pip`, never plain `pip`: it guarantees the venv's pip runs.
+python -m pip install --upgrade pip setuptools
+
+# 3. Install requirements.txt, together with Airflow's official constraints file
 #    for YOUR Python version. PY becomes e.g. "3.12", detected automatically.
 PY=$(python -c 'import sys; print(f"{sys.version_info[0]}.{sys.version_info[1]}")')
-pip install -r requirements.txt --constraint \
+python -m pip install -r requirements.txt --constraint \
   "https://raw.githubusercontent.com/apache/airflow/constraints-3.3.2/constraints-${PY}.txt"
 
-# 3. Check that it worked (should print 3.3.2)
+# 4. Check that it worked (should print 3.3.2)
 airflow version
 
-# 4. Start Airflow
+# 5. Start Airflow
 export AIRFLOW_HOME="$PWD/airflow_home"
 export AIRFLOW__CORE__DAGS_FOLDER="$PWD/dags"
 export AIRFLOW__CORE__LOAD_EXAMPLES=False
@@ -169,6 +175,7 @@ To check that the LLM was actually used, look at `run_info.llm_used` and `summar
 | `Gave up after 4 attempts` | The app used templates for that batch and carried on. Run it again later. |
 | The DAG doesn't appear in Airflow | Check that `dags/` is mounted or set as the DAGs folder. Errors in the DAG file show at the top of the Airflow UI. |
 | `Permission denied` writing to `output/` (Docker on Linux) | Keep the `--user "$(id -u):0"` line in the command. |
+| `AttributeError: module 'pkgutil' has no attribute 'ImpImporter'` | An old, global pip is running, not the venv's pip. Check whether the traceback shows a path outside `.venv`. Delete and recreate `.venv`, run `hash -r`, then `python -m pip install --upgrade pip`. Always use `python -m pip`. |
 | `pip install` fails with a 404 on the constraints URL | Your Python version isn't supported. Use Python 3.10 - 3.14 (check with `python --version`). |
 | `requirements.txt` not found | It's on the `feature/airflow-lead-qualification` branch until PR #1 is merged. Run `git checkout feature/airflow-lead-qualification` first. |
 | `Input file not found` | The file must be in `data/`, or you must pass a full path. |
