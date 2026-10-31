@@ -1,60 +1,48 @@
-# Lead Intelligence System (Airflow)
+# Lead Intelligence System
 
-Auto-qualifies sales leads from a CSV, writes personalised first emails with an LLM, and produces a report the sales team can act on. It's built as one beginner-friendly **Apache Airflow DAG**.
+Our sales team gets around 1,200 leads a month and spends 8–12 minutes deciding on each one. This tool does that first pass for them. It reads a list of leads, scores each one, writes a personal first email for the good ones, and hands back a ranked list the team can start calling straight away.
 
-```
-                                 ┌─> write_outreach_messages ─┐   (LLM, batched)
-load_leads ─> score_leads ───────┤                            ├─> build_report
- (clean CSV)  (rubric, no LLM)   └─> get_second_opinions ─────┘   (JSON + CSV)
-```
+It runs as a small Airflow workflow, and you can also run it as a plain Python script.
 
-| File | What it does |
-|---|---|
-| `dags/lead_qualification_dag.py` | **The only Airflow file.** Defines the 5 tasks and their order |
-| `dags/lead_qualifier/settings.py` | Rubric points, thresholds and LLM settings. **Edit this to tune.** |
-| `dags/lead_qualifier/data_loader.py` → `rubric.py` → `ai_steps.py` → `report.py` | One file per step. Plain Python, no Airflow imports |
-| `dags/lead_qualifier/llm_client.py` | Batched calls to the NVIDIA API, with retries |
-| `run_local.py` | Runs the same pipeline without Airflow (the CLI tool) |
-| `data/` · `output/` | Input CSVs · generated reports (sample runs are included) |
+## How to run it
 
-## How to run
+You only need Python 3.9 or newer. The script itself needs nothing extra installed.
 
-**See [HOW_TO_RUN.md](HOW_TO_RUN.md).** It covers the NVIDIA API key, running with plain Python, and running in Airflow (with or without Docker). The LLM is the NVIDIA API catalog ([build.nvidia.com](https://build.nvidia.com), free key), and the default model is `nvidia/nemotron-3.5-lightning-30b-a3b`.
+1. **Get a free NVIDIA API key** at [build.nvidia.com](https://build.nvidia.com). The key starts with `nvapi-`. Then set it in your terminal:
+   ```bash
+   export NVIDIA_API_KEY="nvapi-..."
+   ```
+2. **Run it** from the project folder:
+   ```bash
+   python run_local.py                                   # all 100 leads
+   python run_local.py --input leads_testing.csv         # the messy test file
+   python run_local.py --input leads_training.csv --limit 5   # quick 5-lead check
+   ```
+3. **Open the results** in the `output/` folder:
+   - `..._leads.csv` opens in Excel or Google Sheets. It has one row per lead, with the decision, the reasons and the email.
+   - `..._report.json` has the full report: totals, the priority queue, leads for review, and sample emails.
 
-## Qualification rubric
+No key? The tool still works. It writes the emails from templates instead of the AI.
 
-Each lead gets up to 10 points: **company size** (3, best at 100–2000 employees), **industry fit** (2 for core tech, 1 for adjacent), **engagement source** (3 for demo request or referral down to 1 for content download or LinkedIn), and **recency** (2 if contacted within 14 days, 1 within 45). A score of **8–10 is qualified** (9+ is HIGH priority), **7 goes to human review**, and **≤6 is rejected**. Scoring is done by deterministic rules, so it's consistent and every point is explained. The LLM is used for judgment: it writes personalised emails in 3 tones chosen by lead source (demo follow-up, warm referral, value-first), and gives a second opinion on review leads. A human still makes the final call on those.
+To run it inside Airflow, follow **[HOW_TO_RUN.md](HOW_TO_RUN.md)**. It covers Docker, a local Airflow install and troubleshooting.
 
-**Human-in-the-loop rules.** Some leads go to review instead of being auto-decided:
-- 2+ rubric fields are missing.
-- The company name is missing.
-- The interaction date is in the future.
-- The company has more than 10,000 employees (routed to the enterprise team).
-- A lead is never rejected for missing data alone. If it *could* score 8 once the missing field is known, it goes to review.
+## How leads are scored
 
-**Results (100 leads):** 35 qualified (13 HIGH), 23 review, 42 rejected. The top rejection reasons are cold sources and industries outside our target market. See `output/leads_full_scale_100_report.json`.
+Each lead gets up to 10 points, split across four things:
+- **Company size** (3 points). Companies of 100–2,000 people score highest.
+- **Industry** (2 points). Software and tech score highest.
+- **How they found us** (3 points). A demo request or a referral scores highest, cold LinkedIn outreach lowest.
+- **How recently we spoke** (2 points). Contact within the last two weeks scores highest.
 
-## Report contents
+Leads scoring **8 or more are qualified** and ranked for outreach. A score of **7 goes to a person to decide**, and **6 or less is rejected**. The scoring uses fixed rules rather than AI, so the same lead always gets the same score, with a reason for every point. The AI writes the emails and gives a quick opinion on borderline leads, but a person still makes those calls.
 
-`output/<input>_report.json` contains:
-- `summary`: totals, percentages, common rejection reasons and data-quality issues
-- `priority_queue`: ranked leads, each with its reasoning and email
-- `flagged_for_review`: each lead with an AI second opinion
-- `disqualified`
-- `sample_outreach_messages`: 3–5 emails, covering every variant
-- `all_leads`
+On the 100-lead sample, the tool qualified 35 leads, sent 23 to review and rejected 42.
 
-`output/<input>_leads.csv` has the same results in a format you can open in a spreadsheet.
+## Known limitations and edge cases
 
-## Robustness
-
-- **API failures:** rate limits (429, honouring `Retry-After`), 5xx errors, timeouts and invalid JSON are retried with exponential backoff, up to 4 attempts per batch. If a batch still fails, or the LLM leaves out a lead or writes a message that doesn't name the company, only those leads fall back to a personalised template. The run never crashes, and `outreach_messages_written_by` shows how many emails came from the LLM vs. the template. On top of this, Airflow retries a crashed task once.
-- **Messy data:** `NA`, `Unknown` and blank values all count as missing, and invalid numbers or dates are logged in `data_issues` per lead. A missing input file or missing CSV columns *does* fail the task, on purpose, so the problem is visible.
-
-## Known limitations
-
-- **Recency:** measured against `reference_date` (default `2024-01-21`, because the sample data is from January 2024). Set it to empty or `None` to use today's date.
-- **Industry matching:** uses fixed lists, so unlisted industries score 0 until they're added to `settings.py`.
-- **Sample outputs:** the included reports were generated **without** an API key, so all emails are template-based. Run with a key to get LLM-written emails.
-- **No de-duplication:** duplicate leads aren't detected, and there's no CRM integration.
-- **XCom:** lead data is passed between tasks via XCom, which is fine for hundreds of leads. For tens of thousands, write to files or a database and pass paths instead.
+- **Missing details:** a lead with missing details (size, industry or source) is never rejected for that alone. If it could still qualify, it goes to a person to check. Leads with no company name, a future contact date, or more than 10,000 employees are always sent to a person.
+- **AI failures:** if the AI is slow, rate-limited or gives a bad answer, the tool retries a few times. It then falls back to a template email, so a run never stops halfway.
+- **"Today" is fixed:** the sample data is from January 2024, so "how recent" is measured from 21 Jan 2024. Use `--reference-date` to change it.
+- **Fixed industry list:** industries we haven't listed, such as "Hospitality", get 0 points until someone adds them in `dags/lead_qualifier/settings.py`.
+- **Sample reports:** the reports in `output/` were made without an API key, so their emails are templates.
+- **Not handled:** the tool doesn't detect duplicate leads or connect to a CRM. It's built for hundreds of leads per run, not tens of thousands.
