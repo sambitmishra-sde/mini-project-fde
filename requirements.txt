@@ -1,0 +1,16 @@
+# Python packages needed to run the lead qualification DAG in Airflow on your machine.
+# Supported Python versions: 3.10 - 3.14 (Airflow 3.3.2 requirement).
+#
+# Install it with the command from HOW_TO_RUN.md (Option B1). That command adds Airflow's
+# official constraints file for YOUR Python version automatically:
+#
+#   PY=$(python -c 'import sys; print(f"{sys.version_info[0]}.{sys.version_info[1]}")')
+#   python -m pip install --upgrade pip
+#   python -m pip install -r requirements.txt --constraint \
+#     "https://raw.githubusercontent.com/apache/airflow/constraints-3.3.2/constraints-${PY}.txt"
+#
+# Why only one package? The app's own code (dags/lead_qualifier/, run_local.py) uses only
+# the Python standard library. Even the NVIDIA API is called with built-in urllib.
+# `python run_local.py` (Option A) needs nothing from this file.
+
+apache-airflow==3.3.2
