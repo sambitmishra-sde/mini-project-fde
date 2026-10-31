@@ -24,7 +24,7 @@ You only need Python 3.9 or newer. The script itself needs nothing extra install
 
 No key? The tool still works. It writes the emails from templates instead of the AI.
 
-To run it inside Airflow, follow **[HOW_TO_RUN.md](HOW_TO_RUN.md)**. It covers Docker, a local Airflow install and troubleshooting.
+To run it inside Airflow, follow **[HOW_TO_RUN.md](HOW_TO_RUN.md)**. It walks you through installing Airflow and running the workflow from its web UI.
 
 ## How leads are scored
 

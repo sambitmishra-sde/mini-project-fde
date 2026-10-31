@@ -2,8 +2,8 @@
 
 This is the only setup guide you need. There are two ways to run the app:
 
-- **Option A: plain Python.** Quickest. You don't need Airflow.
-- **Option B: Airflow.** The same pipeline as a DAG you trigger from the Airflow web UI.
+- **Option A: plain Python.** Quickest.
+- **Option B: Airflow DAG.** The same steps, run and monitored from the Airflow web UI.
 
 Both options run the same code and write the same reports.
 
@@ -25,20 +25,13 @@ Both options run the same code and write the same reports.
    $env:NVIDIA_API_KEY = "nvapi-xxxxxxxxxxxxxxxx"
    ```
 
-Never put the key in a file you commit.
-
-**Optional: use a different model.** The default model is `nvidia/nemotron-3.5-lightning-30b-a3b`. To use another model, copy its id from its page on build.nvidia.com:
-```bash
-export NVIDIA_MODEL="meta/llama-3.3-70b-instruct"
-```
-
 **No key?** The app still runs. Emails then come from built-in templates, which still use each lead's details, instead of the LLM.
 
 ---
 
-## Option A: Run with plain Python (no Airflow)
+## Option A: Run with plain Python
 
-Requires **Python 3.9 or newer**. You can skip `requirements.txt` for this option. The app uses only the Python standard library, and that file only installs Airflow (needed for Option B2).
+Requires **Python 3.9 or newer**. You can skip `requirements.txt` for this option. The app uses only the Python standard library, and that file only installs Airflow (needed for Option B).
 
 Run these commands from the project folder (`mini-project-fde/`):
 
@@ -53,8 +46,6 @@ python run_local.py --input leads_testing.csv
 python run_local.py
 ```
 
-At the end of each run, the app prints `Done. Report: output/...`.
-
 Options:
 
 | Flag | Meaning | Default |
@@ -65,88 +56,120 @@ Options:
 
 ---
 
-## Option B: Run in Airflow
+## Option B: Run as an Airflow DAG
 
-### B1. With Docker (recommended, works on any OS)
+Airflow runs on macOS and Linux. On Windows, run these steps inside WSL.
 
-Requires Docker Desktop or Docker Engine. Run this single command from the project folder:
+### B1. Install and start Airflow (one-time setup)
 
-```bash
-docker run -it --rm -p 8080:8080 \
-  --user "$(id -u):0" \
-  -e AIRFLOW__CORE__LOAD_EXAMPLES=False \
-  -e AIRFLOW__CORE__SIMPLE_AUTH_MANAGER_ALL_ADMINS=True \
-  -e LEAD_PROJECT_DIR=/opt/airflow/project \
-  -e NVIDIA_API_KEY \
-  -e NVIDIA_MODEL \
-  -v "$PWD/dags:/opt/airflow/dags" \
-  -v "$PWD/data:/opt/airflow/project/data" \
-  -v "$PWD/output:/opt/airflow/project/output" \
-  apache/airflow:3.3.2 standalone
-```
-
-On Windows PowerShell, use the same command with these changes:
-- Remove the `--user` line.
-- Replace `$PWD` with `${PWD}`.
-- Replace each `\` at the end of a line with a backtick (`` ` ``).
-
-What the settings do:
-- `standalone` runs the whole of Airflow (web UI, scheduler and database) in one container. This is for learning only, not for production.
-- `SIMPLE_AUTH_MANAGER_ALL_ADMINS=True` skips the login page. Only use this on your own machine.
-- `-e NVIDIA_API_KEY` passes the key from your terminal into the container.
-- The three `-v` lines share your `dags/`, `data/` and `output/` folders with the container. Reports are written straight into your own `output/` folder.
-
-Wait about a minute until the log shows Airflow is ready, then continue with **B3**. Press `Ctrl+C` to stop.
-
-### B2. Without Docker (macOS / Linux / WSL)
-
-Airflow does not run natively on Windows. Windows users should use WSL or Option B1.
+You need Airflow installed before you can run the DAG. Run this from the project folder (`mini-project-fde/`):
 
 ```bash
 # 1. Create an isolated Python environment (needs Python 3.10 - 3.14)
 python3 -m venv .venv && source .venv/bin/activate
 hash -r                       # make the shell forget any cached global `pip`
 which python                  # must end in .../mini-project-fde/.venv/bin/python
-python --version
 
-# 2. Upgrade pip INSIDE the venv (old pip crashes on Python 3.12+)
-#    Always use `python -m pip`, never plain `pip`: it guarantees the venv's pip runs.
+# 2. Upgrade pip inside the venv (old pip crashes on Python 3.12+)
 python -m pip install --upgrade pip setuptools
 
-# 3. Install requirements.txt, together with Airflow's official constraints file
-#    for YOUR Python version. PY becomes e.g. "3.12", detected automatically.
+# 3. Install Airflow with the official constraints file for YOUR Python version
 PY=$(python -c 'import sys; print(f"{sys.version_info[0]}.{sys.version_info[1]}")')
 python -m pip install -r requirements.txt --constraint \
   "https://raw.githubusercontent.com/apache/airflow/constraints-3.3.2/constraints-${PY}.txt"
+airflow version               # should print 3.3.2
+```
 
-# 4. Check that it worked (should print 3.3.2)
-airflow version
+Then start Airflow. Run these in the **same terminal** where you set `NVIDIA_API_KEY` (Step 1). Airflow passes your terminal's environment variables on to the tasks:
 
-# 5. Start Airflow
-export AIRFLOW_HOME="$PWD/airflow_home"
-export AIRFLOW__CORE__DAGS_FOLDER="$PWD/dags"
-export AIRFLOW__CORE__LOAD_EXAMPLES=False
-export AIRFLOW__CORE__SIMPLE_AUTH_MANAGER_ALL_ADMINS=True
+```bash
+export AIRFLOW_HOME="$PWD/airflow_home"                   # Airflow's own files go here
+export AIRFLOW__CORE__DAGS_FOLDER="$PWD/dags"              # where Airflow looks for our DAG
+export AIRFLOW__CORE__LOAD_EXAMPLES=False                  # hide Airflow's ~50 example DAGs
+export AIRFLOW__CORE__SIMPLE_AUTH_MANAGER_ALL_ADMINS=True  # no login page (local use only)
 airflow standalone
 ```
 
-### B3. Trigger the DAG in the web UI
+`airflow standalone` starts the whole of Airflow in one process: the web UI, the scheduler and a small database. It's meant for learning, not production. Leave this terminal open while you work. To stop Airflow, press `Ctrl+C` there. Next time, just activate the venv and repeat the `export` lines and `airflow standalone`; you don't need to reinstall.
 
-1. Open http://localhost:8080.
-2. Find the DAG **`lead_qualification`**. If it isn't there yet, wait about 30 seconds and refresh.
-3. Click **Trigger**. A form appears where you can change:
-   - `input_file`: for example `leads_testing.csv`
-   - `reference_date`
-4. Open the run and switch to the **Graph** view. Each box turns green when its task succeeds:
-   ```
-   load_leads -> score_leads -> write_outreach_messages ─┐
-                             └> get_second_opinions ─────┴> build_report
-   ```
-5. Click any task and open **Logs** to see what it did, such as batch progress, retries and decision counts.
+### B2. Run the DAG from the Airflow web UI
 
-You can also trigger the DAG from a terminal:
+**1. Open the UI.** Wait until the terminal stops printing startup messages (about a minute), then open **http://localhost:8080**. You go straight in, with no login, because of the `SIMPLE_AUTH_MANAGER_ALL_ADMINS` setting.
+
+**2. Find the DAG.** Click **Dags** in the left menu. You should see **`lead_qualification`**, with the tags `leads`, `llm` and `beginner`.
+- Not there yet? Airflow scans the `dags/` folder every so often. Wait 30–60 seconds and refresh.
+- Still not there? A red **Dag Import Errors** banner at the top of the page shows why Airflow couldn't load the file. Click it to see the Python error.
+
+**3. Unpause it.** New DAGs start **paused**, which means Airflow won't run them. Click the toggle switch next to `lead_qualification` so it turns on (blue). You only need to do this once.
+
+**4. Open the DAG.** Click the name `lead_qualification`. This page shows the DAG's past runs and its tasks. Take a look at the **Graph** tab before running anything, because it shows how the 5 tasks connect:
+
+```
+load_leads ──> score_leads ──┬──> write_outreach_messages ──┬──> build_report
+                             └──> get_second_opinions ──────┘
+```
+
+| Task | What it does |
+|---|---|
+| `load_leads` | Reads the CSV from `data/` and cleans each row (blanks, `NA`, bad dates) |
+| `score_leads` | Scores each lead out of 10 and decides: qualified, review or rejected |
+| `write_outreach_messages` | Asks the NVIDIA LLM to write an email for each qualified lead, 10 leads per request |
+| `get_second_opinions` | Asks the LLM for a short opinion on each lead sent for human review |
+| `build_report` | Writes the JSON report and the CSV file to `output/` |
+
+The two middle tasks don't depend on each other, so Airflow runs them **at the same time**.
+
+**5. Trigger a run.** Click the **Trigger** button (top right). A form opens with the DAG's two **parameters**:
+
+| Parameter | What to enter | Default |
+|---|---|---|
+| `input_file` | A CSV name from `data/`: `leads_training.csv`, `leads_testing.csv` or `leads_full_scale_100.csv` | `leads_full_scale_100.csv` |
+| `reference_date` | The date treated as "today" for recency, as `YYYY-MM-DD` | `2024-01-21` |
+
+Keep the defaults for your first run, then click **Trigger**. Each click makes a new **DAG run**, so you can run the testing file and then the full file one after the other.
+
+**6. Watch it run.** Open the run you just started, and use the **Graph** or **Grid** tab. Each task box changes colour as it goes:
+
+| Colour | State | Meaning |
+|---|---|---|
+| Grey | queued / scheduled | Waiting for its turn |
+| Light green | running | Working right now |
+| Dark green | success | Finished OK |
+| Yellow / orange | up_for_retry | Crashed once. Airflow retries it after 1 minute |
+| Red | failed | Crashed again after the retry. Check its logs |
+
+A run on 100 leads takes a few seconds without an API key, and about a minute with one (most of that time is waiting for the LLM).
+
+**7. Read the logs.** Click any task box and open the **Logs** tab. Each task logs what it did. For a 100-lead run, you'll see lines like these:
+
+| Task | Typical log lines |
+|---|---|
+| `load_leads` | `Loaded 100 leads (0 with data issues)` |
+| `score_leads` | `Decisions: {'qualified': 35, 'review': 23, 'rejected': 42}` |
+| `write_outreach_messages` | `Writing outreach for 35 qualified leads`, then `Batch 1: LLM returned 10/10 messages` for each batch |
+| `get_second_opinions` | `Getting AI second opinions for 23 review leads` |
+| `build_report` | `Summary: {...}` and `Report written to .../output/leads_full_scale_100_report.json` |
+
+Warnings worth knowing about:
+- `NVIDIA_API_KEY not set - using template messages`: Airflow was started in a terminal without the key. Stop Airflow, run `export NVIDIA_API_KEY=...`, and start it again.
+- `LLM attempt 1/4 failed: rate limited (429). Retrying in 2s`: normal on the free tier. The app waits and retries by itself.
+- `Batch 2: LLM failed (...) - using templates for this batch`: the LLM failed 4 times, so that batch used template emails. The run still finishes.
+
+**8. See what each task handed on (optional).** Click a task and open the **XCom** tab. "XCom" is how Airflow passes data between tasks: whatever a task returns is saved there and given to the next task. For example, `score_leads` shows every lead with its score, and `build_report` shows the path of the report it wrote. This is a good way to understand how the pipeline works step by step.
+
+**9. Get the results.** When all 5 boxes are dark green, open the `output/` folder in the project. You'll find the two report files described in **Step 2** below. Each run overwrites the previous report for the same input file.
+
+**10. Re-run a step (optional).** To run one task again, for example after changing a prompt, click the task, choose **Clear**, and confirm. Airflow re-runs that task and every task after it. To run everything again, just trigger a new run.
+
+**Trigger from the terminal instead.** Open a second terminal, activate the venv, and set the same `AIRFLOW_HOME` first, so the command talks to the Airflow you started:
+
 ```bash
-airflow dags trigger lead_qualification
+source .venv/bin/activate
+export AIRFLOW_HOME="$PWD/airflow_home"
+
+airflow dags trigger lead_qualification                                          # defaults
+airflow dags trigger lead_qualification --conf '{"input_file": "leads_testing.csv"}'  # another file
+airflow dags list-import-errors                                                   # why the DAG isn't showing
 ```
 
 ---
@@ -161,24 +184,6 @@ Every run writes two files to `output/`. They're named after the input file.
 | `<input>_leads.csv` | One row per lead. You can open it in Excel or Google Sheets. |
 
 To check that the LLM was actually used, look at `run_info.llm_used` and `summary.outreach_messages_written_by` in the JSON report. For example, `{"llm": 33, "template": 2}` means the LLM wrote 33 emails and 2 came from templates.
-
----
-
-## Troubleshooting
-
-| You see | What to do |
-|---|---|
-| `NVIDIA_API_KEY not set - using template messages` | Set the key (Step 1) in the **same** terminal you run from. For Docker, set the key before running `docker run`. |
-| `HTTP 401` or `HTTP 403 (check NVIDIA_API_KEY)` | The key is wrong or has expired. Create a new key on build.nvidia.com. |
-| `HTTP 404 (model ... not found)` | The model was renamed or retired. Pick a current chat model on build.nvidia.com and set `NVIDIA_MODEL`. |
-| `rate limited (429). Retrying...` | This is normal on the free tier. The app waits and retries by itself. |
-| `Gave up after 4 attempts` | The app used templates for that batch and carried on. Run it again later. |
-| The DAG doesn't appear in Airflow | Check that `dags/` is mounted or set as the DAGs folder. Errors in the DAG file show at the top of the Airflow UI. |
-| `Permission denied` writing to `output/` (Docker on Linux) | Keep the `--user "$(id -u):0"` line in the command. |
-| `AttributeError: module 'pkgutil' has no attribute 'ImpImporter'` | An old, global pip is running, not the venv's pip. Check whether the traceback shows a path outside `.venv`. Delete and recreate `.venv`, run `hash -r`, then `python -m pip install --upgrade pip`. Always use `python -m pip`. |
-| `pip install` fails with a 404 on the constraints URL | Your Python version isn't supported. Use Python 3.10 - 3.14 (check with `python --version`). |
-| `requirements.txt` not found | It's on the `feature/airflow-lead-qualification` branch until PR #1 is merged. Run `git checkout feature/airflow-lead-qualification` first. |
-| `Input file not found` | The file must be in `data/`, or you must pass a full path. |
 
 ---
 
